@@ -141,10 +141,18 @@ ex ()
 # better yaourt colors
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 
-# Darren's customisations
-shopt -s autocd            # automatically cd when entering just a path
-export PS1='$(expr $(expr `date +%s` - `date +%s -d "2018-07-10 0000 UTC"`) / 86400)\[\e[31m\]\\$\[\e[m\] '       # set the primary prompt
-export PS2='>'                            # set the secondary prompt
+# Darren's customisations------------------------------------------------------------------
+
+# automatically cd when entering just a path
+shopt -s autocd
+
+# set prompts
+export PS1='$(expr $(expr `date +%s` - `date +%s -d "2018-07-10 0000 UTC"`) / 86400)\[\e[31m\]\\$\[\e[m\] '
+export PS2='>'
+
+# set aliases and functions pretending to be aliases
+alias t='todo.sh'
+alias dotfiles='/usr/bin/git --git-dir=/home/darren/.dotfiles/ --work-tree=/home/darren'
 alias kp='kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx'
 kpx() { 
   kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx --command "xp main/$1";
@@ -152,10 +160,10 @@ kpx() {
 kpu() { 
   kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx --command "xu main/$1";
 }
-alias t='todo.sh'
-export PATH="/home/darren/script:$PATH"
 
-# added by Miniconda3 installer
-#export PATH="/home/darren/miniconda3/bin:$PATH"
+# set paths
+export PATH="/home/darren/script:$PATH"
 export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python"
-alias dotfiles='/usr/bin/git --git-dir=/home/darren/.dotfiles/ --work-tree=/home/darren'
+
+# Add vi style key bindings to bash enable with ESC or Ctrl+[, view with $ bind -P
+set -o vi
