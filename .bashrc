@@ -149,6 +149,9 @@ alias kp='kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx'
 kpx() { 
   kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx --command "xp main/$1";
 }
+kpu() { 
+  kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx --command "xu main/$1";
+}
 alias t='todo.sh'
 export PATH="/home/darren/script:$PATH"
 
