@@ -1,7 +1,8 @@
 conky.config = {
 	alignment = 'bottom_left',
 	background = true,
-	color2 = '5D7B86',
+	#color2 = '5D7B86',
+	color2 = 'FF0000',
 	cpu_avg_samples = 2,
 	default_color = 'F9FAF9',
 	double_buffer = true,
@@ -26,9 +27,11 @@ ${color2}pacmanfm - ${color}mod+F3
 ${color2}virtualbox - ${color}mod+F4
 ${color2}mocp - ${color}mod+F5
 ${color2}anki - ${color}mod+F6
+${color2}go for it - ${color}mod+F7
+${color2}spotify - ${color}mod+F9
 
-${color2}ubuntu 16.04 - ${color}mod+F7
-${color2}windows 10 - ${color}mod+F8
+#${color2}ubuntu 16.04 - ${color}mod+F7
+#${color2}windows 10 - ${color}mod+F8
 
 ${color2}kill focused - ${color}mod+Shift+q
 ${color2}toggle split direction - ${color}mod+q
