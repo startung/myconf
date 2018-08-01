@@ -1,0 +1,7 @@
+[user]
+	name = startung
+	email = 717612+startung@users.noreply.github.com
+[credential]
+	helper = cache --timeout=28800
+[url "https://startung@github.com"]
+	insteadOf = https://github.com
