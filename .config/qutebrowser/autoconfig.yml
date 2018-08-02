@@ -283,5 +283,6 @@ global:
     eb: https://www.ebay.co.uk/sch/i.html?_nkw={}
     gg: https://www.google.co.uk/search?q={}
     gm: http://maps.google.com/maps?q={}
+    gn: https://www.google.co.uk/search?q={}&tbm=nws
     wk: https://en.wikipedia.org/wiki/Special:Search/{}
   url.start_pages: https://www.startpage.com

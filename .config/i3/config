@@ -80,6 +80,26 @@ bindsym Scroll_Lock exec gnome-terminal
 focus_follows_mouse no
 bindsym $mod+p exec /home/darren/script/mouse.sh
 
+# Change keyboard settings (openrazor)
+bindsym $mod+o mode "keyboard"
+mode "keyboard" {
+        bindsym 1 exec /home/darren/script/keyboard.sh breath 
+        bindsym o exec /home/darren/script/keyboard.sh off
+        bindsym s exec /home/darren/script/keyboard.sh spectrum
+        bindsym w exec /home/darren/script/keyboard.sh white
+        bindsym r exec /home/darren/script/keyboard.sh red
+        bindsym g exec /home/darren/script/keyboard.sh green
+        bindsym b exec /home/darren/script/keyboard.sh blue
+        bindsym 2 exec /home/darren/script/keyboard.sh reactive
+        bindsym f exec /home/darren/script/keyboard.sh full
+        bindsym d exec /home/darren/script/keyboard.sh dim
+
+        # exit resize mode: "Escape" or "Control+["
+        bindsym Escape mode "default"
+        bindsym Ctrl+bracketleft mode "default"
+}
+
+
 # change focus
 bindsym $mod+h focus left
 bindsym $mod+j focus down
