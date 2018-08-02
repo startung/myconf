@@ -75,7 +75,11 @@ bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 bindsym Scroll_Lock exec gnome-terminal
+
+# mouse tweaks
 focus_follows_mouse no
+#bindsym $mod+p exec xinput --disable "Logitech Gaming Mouse G402"
+bindsym $mod+p exec /home/darren/script/mouse.sh
 
 # change focus
 bindsym $mod+h focus left
@@ -140,8 +144,8 @@ set $ws3 3
 set $ws4 4
 set $ws5 5
 set $ws6 6
-set $ws7 7:Win 10
-set $ws8 8:Ubuntu
+set $ws7 7
+set $ws8 8
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -152,7 +156,6 @@ bindsym $mod+5 workspace $ws5
 bindsym $mod+6 workspace $ws6
 bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
-bindsym $mod+9 workspace $ws9
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -161,6 +164,8 @@ bindsym $mod+Ctrl+3 move container to workspace $ws3
 bindsym $mod+Ctrl+4 move container to workspace $ws4
 bindsym $mod+Ctrl+5 move container to workspace $ws5
 bindsym $mod+Ctrl+6 move container to workspace $ws6
+bindsym $mod+Ctrl+7 move container to workspace $ws7
+bindsym $mod+Ctrl+8 move container to workspace $ws8
 
 # Move to workspace with focused container
 bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
@@ -169,6 +174,8 @@ bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
 bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
 bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
 bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws6; workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws6; workspace $ws8
 
 # Open applications on specific workspaces
 assign [class="VirtualBox" title="Windows 10"] $ws7
@@ -237,8 +244,8 @@ bindsym $mod+r mode "resize"
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
         bindsym h resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
+        bindsym j resize shrink height 5 px or 5 ppt
+        bindsym k resize grow height 5 px or 5 ppt
         bindsym l resize grow width 5 px or 5 ppt
 
         # exit resize mode: "Escape" or "Control+["
@@ -259,7 +266,7 @@ exec --no-startup-id urxvtd
 exec --no-startup-id dropbox start
 exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/howtogetmotivated-1920x1080-negative.png
 exec --no-startup-id numlockx on
-
+exec --no-startup-id xdotools mousemove 2000 1100 # Move mouse of screen for laptop with broke trackpad
 # Color palette used for the terminal ( ~/.Xresources file )
 # Colors are gathered based on the documentation:
 # https://i3wm.org/docs/userguide.html#xresources
