@@ -227,8 +227,9 @@ mode "$mode_system" {
     bindsym s exec --no-startup-id ~/script/i3exit shutdown, mode "default"
 
 
-    # exit system mode: "Enter" or "Escape"
+    # exit system mode: "Escape" or "Control+["
     bindsym Escape mode "default"
+    bindsym Ctrl+bracketleft "default"
 }
 
 # Resize window (you can also use the mouse for that)
@@ -240,8 +241,9 @@ mode "resize" {
         bindsym k resize shrink height 5 px or 5 ppt
         bindsym l resize grow width 5 px or 5 ppt
 
-        # exit resize mode: Enter or Escape
+        # exit resize mode: "Escape" or "Control+["
         bindsym Escape mode "default"
+        bindsym Ctrl+bracketleft mode "default"
 }
 
 # Lock screen
