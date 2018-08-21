@@ -82,6 +82,7 @@ bindsym $mod+p exec /home/darren/script/mouse.sh
 
 # Change keyboard settings (openrazor)
 bindsym $mod+o mode "keyboard"
+# set $keyboard (l)ock, (e)xit, switch_(u)ser, suspen(d), (h)ibernate, (r)eboot, (s)hutdown
 mode "keyboard" {
         bindsym 1 exec /home/darren/script/keyboard.sh breath 
         bindsym o exec /home/darren/script/keyboard.sh off

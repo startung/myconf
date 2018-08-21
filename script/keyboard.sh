@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-path="/sys/bus/hid/drivers/razerkbd/0003:1532:021E.0005"
+path="/sys/bus/hid/drivers/razerkbd/0003:1532:021E.0003"
 #state=$(xinput list-props "$device" | grep "Device Enabled" | grep -o "[01]$")
 
 case $1 in
