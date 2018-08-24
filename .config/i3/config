@@ -284,7 +284,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id ~/script/start_conky_maia
 exec --no-startup-id urxvtd
 exec --no-startup-id dropbox start
-exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/howtogetmotivated-1920x1080-negative.png
+exec_always --no-startup-id feh --bg-fill $HOME/Pictures/Wallpapers/Free-Thor-Wallpaper-HD-for-Desktop-31.jpg
 exec --no-startup-id numlockx on
 exec --no-startup-id /home/darren/script/mouse.sh off # Disable mouse
 # Color palette used for the terminal ( ~/.Xresources file )
