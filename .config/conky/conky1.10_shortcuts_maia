@@ -1,14 +1,13 @@
 conky.config = {
 	alignment = 'bottom_left',
 	background = true,
-	#color2 = '5D7B86',
 	color2 = 'FF0000',
 	cpu_avg_samples = 2,
 	default_color = 'F9FAF9',
 	double_buffer = true,
 	font = 'Bitstream Vera Sans:size=8',
 	draw_shades = false,
-	gap_x = 25,
+	gap_x = 5,
 	gap_y = 45,
 	minimum_width = 200,
 	no_buffers = true,
@@ -16,7 +15,7 @@ conky.config = {
 	own_window_type = 'override',
 	own_window_transparent = true,
 	update_interval = 2.0,
-	use_xft = true,
+	use_xft = true
 }
 conky.text = [[
 ${color2}terminal - ${color}mod+Enter
@@ -41,9 +40,8 @@ ${color2}dmenu - ${color}mod+d
 ${color2}bmenu - ${color}mod+Ctrl+b
 ${color2}morc_menu - ${color}mod+z
 
-${color2}switch to workspace 1-8 - ${color}mod+1-8
-${color2}send to workspace 1-8 - ${color}mod+Ctrl+1-8
-${color2}navigate workspaces - ${color}mod+Ctrl+arrowkeys
+${color2}switch wksp 1-8 - ${color}mod+1-8
+${color2}send wksp 1-8 - ${color}mod+Ctrl+1-8
 
 ${color2}exit - ${color}mod+0
 
