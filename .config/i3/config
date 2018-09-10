@@ -42,8 +42,8 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-#exec --no-startup-id volumeicon
-#bindsym $mod+Ctrl+m exec gnome-terminal -e 'alsamixer'
+exec --no-startup-id volumeicon
+bindsym $mod+Ctrl+m exec gnome-terminal -e 'alsamixer'
 
 ################################################################################################
 # Pulse Audio controls
@@ -228,6 +228,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 #for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [class="Gnome-control-center"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -363,3 +364,14 @@ bindsym $mod+m bar mode toggle
 # Dropdown Terminal set to postion and floating mode
 bindsym $mod+Shift+t exec --no-startup-id tilda 
 for_window [class="Tilda"] floating enable
+
+# Make i3 play nice with Gnome
+# GNOME Settings Daemon
+exec --no-startup-id /usr/lib/gnome-settings-daemon/gsd-xsettings
+# GNOME power manager
+exec_always --no-startup-id gnome-power-manager
+# polkit-gnome - Starts authentication-agent needed to get sudo password check aviable for GUIs 
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# GNOME Flashback - GNOME Flashback integrates more features from GNOME
+exec --no-startup-id gnome-flashback
+

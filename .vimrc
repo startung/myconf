@@ -19,4 +19,12 @@ noremap <Right> <Nop>
 set visualbell
 " Highlight all matches whilst searching
 set hlsearch
+" Use Linux coding styles preferred indent size
+set tabstop=8
 
+if has("autocmd")
+  augroup templates
+    autocmd BufNewFile *.sh 0r ~/.vim/templates/skeleton.sh
+    autocmd BufNewFile *.c 0r ~/.vim/templates/skeleton.c
+  augroup END
+endif
