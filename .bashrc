@@ -155,6 +155,8 @@ alias t='todo.sh'
 alias dotfiles='/usr/bin/git --git-dir=/home/darren/.dotfiles/ --work-tree=/home/darren'
 alias kp='kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx'
 alias stretch='mpv /home/darren/Videos/morning\ stretches.mp4'
+alias setclip='xclip -selection c'
+alias getclip='xclip -selection c -o'
 kpx() { 
   kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx --command "xp main/$1";
 }
