@@ -147,7 +147,8 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 shopt -s autocd
 
 # set prompts
-export PS1='$(expr $(expr `date +%s` - `date +%s -d "2018-07-10 0000 UTC"`) / 86400)\[\e[31m\]\\$\[\e[m\] '
+# export PS1='$(expr $(expr `date +%s` - `date +%s -d "2018-07-10 0000 UTC"`) / 86400)\[\e[31m\]\\$\[\e[m\] '
+export PS1='\[\e[31m\][\[\e[m\]$?\[\e[31m\]]\$\[\e[m\] '
 export PS2='>'
 
 # set aliases and functions pretending to be aliases

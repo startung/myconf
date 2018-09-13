@@ -1,5 +1,7 @@
 set number
 set ruler
+highlight ColorColumn ctermbg=16
+set colorcolumn=80
 
 " Attempt to determine the type of a file based on its name and possibly its
 " contents. Use this to allow intelligent auto-indenting for each filetype,
