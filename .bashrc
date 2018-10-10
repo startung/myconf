@@ -138,9 +138,6 @@ ex ()
   fi
 }
 
-# better yaourt colors
-export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
-
 # Darren's customisations------------------------------------------------------------------
 
 # automatically cd when entering just a path
@@ -155,7 +152,8 @@ export PS2='>'
 alias t='todo.sh'
 alias dotfiles='/usr/bin/git --git-dir=/home/darren/.dotfiles/ --work-tree=/home/darren'
 alias kp='kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx'
-alias stretch='mpv /home/darren/Videos/morning\ stretches.mp4'
+alias stretch='mpv /home/darren/Dropbox/morning/stretch.mp4'
+alias meditate='mpv /home/darren/Dropbox/morning/meditate.mp3'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
 kpx() { 
