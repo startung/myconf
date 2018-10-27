@@ -169,4 +169,4 @@ export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python"
 export PATH="/home/darren/script/pamixer:$PATH"
 
 # Add vi style key bindings to bash enable with ESC or Ctrl+[, view with $ bind -P
-set -o vi
+#set -o vi
