@@ -153,6 +153,7 @@ alias dotfiles='/usr/bin/git --git-dir=/home/darren/.dotfiles/ --work-tree=/home
 alias kp='kpcli --readonly --kdb=/home/darren/Applilcations/Keepass2Android/main.kdbx'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
+alias gitall='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;'
 kpx() { 
   kpcli --readonly --kdb=/home/darren/Applilcations/Keepass2Android/main.kdbx --command "xp main/$1";
 }
@@ -169,3 +170,5 @@ kpu() {
 export PATH="/home/darren/Scripts:/home/darren/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/darren/.vimpkg/bin"
 #export PATH="/home/darren/script/pamixer:/home/darren/script:/home/darren/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/darren/.vimpkg/bin"
 
+
+export PATH="/home/darren/Scripts:/home/darren/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/darren/.vimpkg/bin:/home/darren/.vimpkg/bin"
