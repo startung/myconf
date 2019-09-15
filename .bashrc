@@ -1,4 +1,3 @@
-i#
 # ~/.bashrc
 #
 
@@ -151,23 +150,22 @@ export PS2='>'
 # set aliases and functions pretending to be aliases
 alias t='todo.sh'
 alias dotfiles='/usr/bin/git --git-dir=/home/darren/.dotfiles/ --work-tree=/home/darren'
-alias kp='kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx'
-alias stretch='mpv /home/darren/Dropbox/morning/stretch.mp4'
-alias meditate='mpv /home/darren/Dropbox/morning/meditate.mp3'
+alias kp='kpcli --readonly --kdb=/home/darren/Applilcations/Keepass2Android/main.kdbx'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
 kpx() { 
-  kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx --command "xp main/$1";
+  kpcli --readonly --kdb=/home/darren/Applilcations/Keepass2Android/main.kdbx --command "xp main/$1";
 }
 kpu() { 
-  kpcli --readonly --kdb=/home/darren/Dropbox/files/keepass/main.kdbx --command "xu main/$1";
+  kpcli --readonly --kdb=/home/darren/Applilcations/Keepass2Android/main.kdbx --command "xu main/$1";
 }
 
 # set paths
-export PATH="/home/darren/script:$PATH"
-export PYTHONPATH="${PYTHONPATH}:/opt/movidius/caffe/python"
-export PATH="/home/darren/script/pamixer:$PATH"
+#export PATH="/home/darren/Scripts:$PATH"
 
 # Add vi style key bindings to bash enable with ESC or Ctrl+[, view with $ bind -P
 #set -o vi
+
+export PATH="/home/darren/Scripts:/home/darren/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/darren/.vimpkg/bin"
+#export PATH="/home/darren/script/pamixer:/home/darren/script:/home/darren/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/darren/.vimpkg/bin"
 

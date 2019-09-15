@@ -114,7 +114,7 @@ set mouse=a
  
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
-set cmdheight=2
+set cmdheight=1
  
 " Display line numbers on the left
 set number
@@ -157,3 +157,21 @@ map Y y$
 nnoremap <C-L> :nohl<CR><C-L>
  
 "------------------------------------------------------------
+" Darren specific
+"
+" Show 40 and 80 columns
+set colorcolumn=40,80
+
+" Use nord colour scheme
+call plug#begin(expand('~/.vim/plugged'))
+Plug 'arcticicestudio/nord-vim'
+Plug 'itchyny/lightline.vim'
+call plug#end()
+
+colorscheme nord
+let g:lightline = {'colorscheme': 'nord',}
+
+" Add NERD Tree shortcut
+map <C-n> :NERDTreeToggle<CR>
+execute pathogen#infect()
+call pathogen#helptags()
