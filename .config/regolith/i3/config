@@ -17,6 +17,25 @@ set $compton_config /etc/regolith/compton/config
 #set $terminal_path /usr/bin/st
 set $terminal_path /usr/bin/gnome-terminal
 
+# Change keyboard settings (openrazor)
+mode "Keyboard Mode" {
+        bindsym 1 exec /home/darren/Scripts/keyboard.sh breath; mode "default"
+        bindsym o exec /home/darren/Scripts/keyboard.sh off; mode "default"
+        bindsym s exec /home/darren/Scripts/keyboard.sh spectrum; mode "default"
+        bindsym w exec /home/darren/Scripts/keyboard.sh white; mode "default"
+        bindsym r exec /home/darren/Scripts/keyboard.sh red; mode "default"
+        bindsym g exec /home/darren/Scripts/keyboard.sh green; mode "default"
+        bindsym b exec /home/darren/Scripts/keyboard.sh blue; mode "default"
+        bindsym 2 exec /home/darren/Scripts/keyboard.sh reactive; mode "default"
+        bindsym f exec /home/darren/Scripts/keyboard.sh full; mode "default"
+        bindsym d exec /home/darren/Scripts/keyboard.sh dim; mode "default"
+
+        # exit resize mode: "Escape" or "Control+["
+        bindsym Escape mode "default"
+        bindsym Ctrl+bracketleft mode "default"
+}
+bindsym $mod+o mode "Keyboard Mode"
+
 # Color values are defined in ~/.Xresources-regolith
 # These are the labels which define each i3 workspace.
 set_from_resource $ws1  i3-wm.workspace.01.name "1"
