@@ -159,8 +159,9 @@ nnoremap <C-L> :nohl<CR><C-L>
 "------------------------------------------------------------
 " Darren specific
 "
-" Show 40 and 80 columns
+" Show 40 and 80 columns and cursorline
 set colorcolumn=40,80
+set cursorline
 
 " Use nord colour scheme
 call plug#begin(expand('~/.vim/plugged'))
