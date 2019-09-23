@@ -153,7 +153,9 @@ alias dotfiles='/usr/bin/git --git-dir=/home/darren/.dotfiles/ --work-tree=/home
 alias kp='kpcli --readonly --kdb=/home/darren/Applilcations/Keepass2Android/main.kdbx'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
-alias gitall='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;'
+alias gita='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;'
+alias gitp='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} push \;'
+alias gits='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} status \;'
 kpx() { 
   kpcli --readonly --kdb=/home/darren/Applications/Keepass2Android/main.kdbx --command "xp main/$1";
 }
