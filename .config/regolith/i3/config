@@ -72,7 +72,7 @@ bindsym $mod+Shift+Return exec /usr/bin/sensible-browser
 # kill focused window
 bindsym $mod+Shift+q kill
 
-set_from_resource $rofiTheme rofi.theme "regolith-theme"
+set_from_resource $rofiTheme rofi.theme "/usr/share/rofi/themes/regolith-theme"
 
 # rofi app and window launchers
 bindsym $mod+space exec rofi -show drun -theme $rofiTheme
