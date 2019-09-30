@@ -17,6 +17,9 @@ set $compton_config /etc/regolith/compton/config
 #set $terminal_path /usr/bin/st
 set $terminal_path /usr/bin/gnome-terminal
 
+# create caps lock key for when I have to do shouty emails
+bindsym $mod+a exec xdotool key Caps_Lock
+
 # Change keyboard settings (openrazor)
 mode "Keyboard Mode" {
         bindsym 1 exec /home/darren/Scripts/keyboard.sh breath; mode "default"
