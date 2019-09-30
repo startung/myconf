@@ -5,3 +5,6 @@
 	helper = cache --timeout=28800
 [url "https://startung@github.com"]
 	insteadOf = https://github.com
+[filesystem "Ubuntu|11.0.4|/dev/nvme0n1p5"]
+	timestampResolution = 6000 nanoseconds
+	minRacyThreshold = 7331 microseconds

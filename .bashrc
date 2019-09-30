@@ -89,12 +89,6 @@ fi
 
 unset use_color safe_term match_lhs sh
 
-alias cp="cp -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
-alias np='nano -w PKGBUILD'
-alias more=less
-
 xhost +local:root > /dev/null 2>&1
 
 complete -cf sudo
@@ -105,73 +99,21 @@ complete -cf sudo
 # http://cnswww.cns.cwru.edu/~chet/bash/FAQ (E11)
 shopt -s checkwinsize
 
-shopt -s expand_aliases
-
 # export QT_SELECT=4
 
 # Enable history appending instead of overwriting.  #139609
 shopt -s histappend
 
-#
-# # ex - archive extractor
-# # usage: ex <file>
-ex ()
-{
-  if [ -f $1 ] ; then
-    case $1 in
-      *.tar.bz2)   tar xjf $1   ;;
-      *.tar.gz)    tar xzf $1   ;;
-      *.bz2)       bunzip2 $1   ;;
-      *.rar)       unrar x $1     ;;
-      *.gz)        gunzip $1    ;;
-      *.tar)       tar xf $1    ;;
-      *.tbz2)      tar xjf $1   ;;
-      *.tgz)       tar xzf $1   ;;
-      *.zip)       unzip $1     ;;
-      *.Z)         uncompress $1;;
-      *.7z)        7z x $1      ;;
-      *)           echo "'$1' cannot be extracted via ex()" ;;
-    esac
-  else
-    echo "'$1' is not a valid file"
-  fi
-}
-
 # Darren's customisations------------------------------------------------------------------
 
-# automatically cd when entering just a path
-shopt -s autocd
+# enable bash_aliases
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
 
 # set prompts
 # export PS1='$(expr $(expr `date +%s` - `date +%s -d "2018-07-10 0000 UTC"`) / 86400)\[\e[31m\]\\$\[\e[m\] '
 export PS1='\[\e[31m\][\[\e[m\]$?\[\e[31m\]]\$\[\e[m\] '
 export PS2='>'
-
-# set aliases and functions pretending to be aliases
-alias t='todo.sh'
-alias dotfiles='/usr/bin/git --git-dir=/home/darren/.dotfiles/ --work-tree=/home/darren'
-alias kp='kpcli --readonly --kdb=/home/darren/Applilcations/Keepass2Android/main.kdbx'
-alias dm='icmbuild program && \cp -f tmp/bin/binary ${PWD##*/} && ./${PWD##*/}'
-alias setclip='xclip -selection c'
-alias getclip='xclip -selection c -o'
-alias gita='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;'
-alias gitp='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} push \;'
-alias gits='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} status \;'
-kpx() { 
-  kpcli --readonly --kdb=/home/darren/Applications/Keepass2Android/main.kdbx --command "xp main/$1";
-}
-kpu() { 
-  kpcli --readonly --kdb=/home/darren/Applications/Keepass2Android/main.kdbx --command "xu main/$1";
-}
-
-# set paths
-#export PATH="/home/darren/Scripts:$PATH"
-
-# Add vi style key bindings to bash enable with ESC or Ctrl+[, view with $ bind -P
-#set -o vi
-
-#export PATH="/home/darren/Scripts:/home/darren/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/darren/.vimpkg/bin"
-#export PATH="/home/darren/script/pamixer:/home/darren/script:/home/darren/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/darren/.vimpkg/bin"
-
 
 export PATH="/home/darren/Scripts:/home/darren/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/darren/.vimpkg/bin:/home/darren/.vimpkg/bin"
