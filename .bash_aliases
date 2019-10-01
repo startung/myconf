@@ -48,6 +48,9 @@ alias getclip='xclip -selection c -o'
 alias gita='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} pull origin master \;'
 alias gitp='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} push \;'
 alias gits='find . -maxdepth 1 -type d -name "[!.]*" -print -execdir git --git-dir={}/.git --work-tree=$PWD/{} status \;'
+gitr() {
+    git pull && git add . && git commit -m $1 && git push;
+}
 kpx() { 
   kpcli --readonly --kdb=/home/darren/Applications/Keepass2Android/main.kdbx --command "xp main/$1";
 }
