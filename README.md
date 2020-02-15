@@ -53,6 +53,14 @@ Be sure to back those up first before moving forward.
 Restart your shell session to pick up all the new aliases and configurations.
 
 ### Finish setup
+Fix vim by installing pathogen and vim-plug
+
+```sh
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
 
 You'll want to tell Git to ignore untracked files when running `git status`,
 since this repository will only manage certain hand-picked files in your
