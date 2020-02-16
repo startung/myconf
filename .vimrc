@@ -114,7 +114,7 @@ set mouse=a
  
 " Set the command window height to 2 lines, to avoid many cases of having to
 " "press <Enter> to continue"
-" set cmdheight=2
+"set cmdheight=2
  
 " Display line numbers on the left
 "set number
@@ -158,38 +158,42 @@ nnoremap <C-L> :nohl<CR><C-L>
  
 "------------------------------------------------------------
 " Darren specific
-"
+
 " Allow :set list! to show all whitespace characters
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»
-"
+
 " Display relative line numbers on the left with currentline as actual line
 " number
 set number relativenumber
-"
+
 " Switch to ctrl+V register
-set clipboard=unnamed
+"set clipboard=unnamed
 set clipboard=unnamedplus
-"
+
 " Map kj and jk to Escape
 cnoremap kj <C-C>
 cnoremap jk <C-C>
-"
+
 " Map F3 to the current date
 nmap <F3> i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 imap <F3> <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
-"
+
 " Show 40 and 80 columns and cursorline
 set colorcolumn=40,80
+highlight ColorColumn ctermbg=0
 set cursorline
 
 " Use nord colour scheme
 call plug#begin(expand('~/.vim/plugged'))
-Plug 'arcticicestudio/nord-vim'
+"Plug 'arcticicestudio/nord-vim'
 Plug 'itchyny/lightline.vim'
 call plug#end()
 
-colorscheme nord
-let g:lightline = {'colorscheme': 'nord',}
+"colorscheme jellybean
+let g:lightline = {'colorscheme': 'jellybeans',}
+
+"hide --INSERT--
+set noshowmode
 
 " Add NERD Tree shortcut
 map <C-n> :NERDTreeToggle<CR>

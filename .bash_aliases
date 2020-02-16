@@ -1,16 +1,34 @@
 # ~/.bash_aliases
 #
 shopt -s expand_aliases
+shopt -s globstar
 
-alias cp="cp -i"                          # confirm before overwriting something
-alias mv="mv -i"                          # confirm before overwriting something
-alias df='df -h'                          # human-readable sizes
-alias free='free -m'                      # show sizes in MB
+alias cp="cp -i"                       # confirm before overwriting something
+alias mv="mv -i"                       # confirm before overwriting something
+alias df='df -h'                       # human-readable sizes
+alias free='free -m'                   # show sizes in MB
 alias np='nano -w PKGBUILD'
 alias more=less
 
-# # ex - archive extractor
-# # usage: ex <file>
+alias ls='ls --color=auto'             # add some colour
+alias grep='grep --color=auto'         # add some colour
+alias fgrep='fgrep --color=auto'       # add some colour
+alias egrep='egrep --color=auto'       # add some colour
+alias diff='diff --color=auto'         # add some colour
+
+# make man pages more colourful
+export LESS_TERMCAP_mb=$'\e[1;32m'
+export LESS_TERMCAP_md=$'\e[1;32m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_se=$'\e[0m'
+export LESS_TERMCAP_so=$'\e[01;33m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;4;31m'
+
+# use LSD rather than ls
+command -v lsd &> /dev/null && alias ls='lsd --group-dirs first'
+
+# ex - archive extractor, usage: ex <file>
 ex ()
 {
   if [ -f $1 ] ; then
@@ -56,5 +74,8 @@ kpx() {
 }
 kpu() { 
   kpcli --readonly --kdb=/home/darren/Applications/Keepass2Android/main.kdbx --command "xu main/$1";
+}
+end() {
+    kill $(ps aux | grep "$1" | grep -v grep | awk '{print $2}');
 }
 

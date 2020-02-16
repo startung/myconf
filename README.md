@@ -19,14 +19,6 @@ cd ~
 mv .bashrc .bashrc.pre-dotfiles
 ```
 
-Next, ensure that your `.dotfiles` directory will be ignored by Git (to eliminate
-recursion issues) by adding to `.gitignore`:
-
-```sh
-touch .gitignore
-echo ".dotfiles" >> .gitignore
-```
-
 Then, clone this repository into your home directory:
 
 ```sh
@@ -61,6 +53,17 @@ curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
+open vim and type
+```sh
+:PlugInstall
+```
+Install Nerd Font (Hack) and LSD
+https://www.nerdfonts.com/font-downloads
+https://github.com/Peltoche/lsd
+Download the latest .deb package from the release page and install it via:
+```sh
+sudo dpkg -i lsd_7.2.0_amd64.deb  # adapt version number and architecture
+```
 
 You'll want to tell Git to ignore untracked files when running `git status`,
 since this repository will only manage certain hand-picked files in your
@@ -90,4 +93,4 @@ dotfiles push
 ```
 
 You'll want to avoid running an "add all" command (like `dotfiles add .` or `dotfiles add -A`)
-since only some of the files in the home directory are tracked by Git.
+since only some of the files in the home directory are tracked by Git. Instead use `dotfiles add -u` which will add all tracked files.
