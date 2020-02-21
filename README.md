@@ -8,6 +8,49 @@ Borrowed from
 
 ## Installation
 
+### Install the pre-requisites
+```sh
+sudo apt install git curl vim caffeine kpcli keepassxc cowsay build-essential
+```
+
+Install pCloud from https://www.pcloud.com/download-free-online-cloud-file-storage.html
+
+Install No-More-Secrets
+```sh
+git clone https://github.com/bartobri/no-more-secrets.git
+cd ./no-more-secrets
+make nms
+make sneakers             ## Optional
+sudo make install
+```
+
+Fix the clipboard on Xclip
+
+```sh
+perl -MCPAN -e install HTML::Template 
+cd ~/perl5/lib/perl5
+curl -O https://www.av8n.com/security/Xclip.pm
+curl -O http://search.cpan.org/CPAN/authors/id/P/PE/PEREINAR/File-Which-0.05.tar.gz
+ex File-Which-0.05.tar.gz
+cd File-Which-0.05
+perl Makefile.PL INSTALLSITELIB=~/perl5/lib/perl5
+make && make install
+```
+... make the following changes to /usr/bin/kpcli:
+```sh
+44a45,46
+> use Xclip;
+>
+1702c1704
+<     Clipboard->copy('');
+---
+>     Xclip::copy2('');
+1734c1736
+<     Clipboard->copy($to_copy);
+---
+>     Xclip::copy2($to_copy);
+```
+
 ### Clone the repository into home directory
 
 This repository contains a `.bashrc` file, which you will want to override the

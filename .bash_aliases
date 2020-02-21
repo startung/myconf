@@ -70,10 +70,10 @@ gitr() {
     git pull && git add . && git commit -m "$1" && git push;
 }
 kpx() { 
-  kpcli --readonly --kdb=/home/darren/Applications/Keepass2Android/main.kdbx --command "xp main/$1";
+  kpcli --readonly --kdb=/home/darren/pCloudDrive/Applications/Keepass2Android/main.kdbx --command "xp main/$1";
 }
 kpu() { 
-  kpcli --readonly --kdb=/home/darren/Applications/Keepass2Android/main.kdbx --command "xu main/$1";
+  kpcli --readonly --kdb=/home/darren//pCloud/Drive/Applications/Keepass2Android/main.kdbx --command "xu main/$1";
 }
 end() {
     kill $(ps aux | grep "$1" | grep -v grep | awk '{print $2}');
