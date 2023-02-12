@@ -15,7 +15,7 @@ include `hostname`.conf
 
 exec --no-startup-id syncthing serve --no-browser --logfile=default
 set $mod Mod4
-set $terminal tilix
+set $terminal alacritty
 set $browser firefox
 focus_follows_mouse no
 
@@ -258,4 +258,5 @@ client.background       #ffffff
 exec --no-startup-id /usr/libexec/gsd-xsettings
 #exec_always feh --bg-scale /home/darren/data/Wallpapers/ohlala.jpeg
 exec picom
+exec --no-startup-id ~/bin/pcloud
 exec_always nitrogen --restore
