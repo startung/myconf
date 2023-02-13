@@ -280,6 +280,7 @@ bindsym $mod+t [class="sp_terminal"] scratchpad show; [class="sp_terminal"] move
 
 for_window [class="^.*"] border pixel 1
 
+exec "setxkbmap -option 'caps:escape_shifted_capslock' -option 'eurosign:5' -option 'lv3:ralt_switch'"
 exec --no-startup-id /usr/libexec/gsd-xsettings
 #exec_always feh --bg-scale /home/darren/data/Wallpapers/ohlala.jpeg
 exec picom
