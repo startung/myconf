@@ -286,3 +286,5 @@ exec --no-startup-id /usr/libexec/gsd-xsettings
 exec picom
 exec --no-startup-id ~/bin/pcloud
 exec_always nitrogen --restore
+
+bindsym $mod+n exec --no-startup-id nautilus
