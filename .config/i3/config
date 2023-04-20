@@ -14,6 +14,10 @@ include `hostname`.conf
 
 
 exec --no-startup-id syncthing serve --no-browser --logfile=default
+
+# set things to dark mode
+exec --no-startup-id /usr/lib/gsd-xsettings 
+
 set $mod Mod4
 set $terminal alacritty
 set $browser firefox
@@ -220,7 +224,7 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3status --config ~/.config/i3status/`hostname`.conf
     #status_command i3status
-	output primary
+#	output primary
 	position top
 }
 
