@@ -266,7 +266,7 @@ for_window [class="Zotero"] floating enable
 for_window [class="Zotero"] move scratchpad 
 for_window [class="Zotero"] sticky enable
 for_window [class="Zotero"] move position center
-for_window [class="Zotero"] resize set 800 600
+for_window [class="Zotero"] resize set 1078 600
 for_window [class="Zotero"] border pixel 1
 exec --no-startup-id zotero 
 bindsym $mod+z [class="Zotero"] scratchpad show; [class="Zotero"] move position center
@@ -275,7 +275,7 @@ for_window [class="KeePassXC"] floating enable
 for_window [class="KeePassXC"] move scratchpad 
 for_window [class="KeePassXC"] sticky enable
 for_window [class="KeePassXC"] move position center
-for_window [class="KeePassXC"] resize set 800 600
+for_window [class="KeePassXC"] resize set 1078 600
 for_window [class="KeePassXC"] border pixel 1
 exec --no-startup-id keepassxc
 bindsym $mod+p [class="KeePassXC"] scratchpad show; [class="KeePassXC"] move position center
@@ -284,7 +284,7 @@ for_window [class="sp_ranger"] floating enable
 for_window [class="sp_ranger"] move scratchpad 
 for_window [class="sp_ranger"] sticky enable
 for_window [class="sp_ranger"] move position center
-for_window [class="sp_ranger"] resize set 1200 900
+for_window [class="sp_ranger"] resize set 1078 900
 for_window [class="sp_ranger"] border pixel 1
 exec_always --no-startup-id alacritty --class sp_ranger
 bindsym $mod+t [class="sp_ranger"] scratchpad show; [class="sp_ranger"] move position center
@@ -293,7 +293,7 @@ for_window [class="sp_terminal"] floating enable
 for_window [class="sp_terminal"] move scratchpad 
 for_window [class="sp_terminal"] sticky enable
 for_window [class="sp_terminal"] move position center
-for_window [class="sp_terminal"] resize set 1200 900
+for_window [class="sp_terminal"] resize set 1078 900
 for_window [class="sp_terminal"] border pixel 1
 exec_always --no-startup-id alacritty -t ranger --class sp_terminal -e ranger
 bindsym $mod+n [class="sp_terminal"] scratchpad show; [class="sp_terminal"] move position center
