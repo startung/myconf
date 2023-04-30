@@ -287,7 +287,7 @@ for_window [class="sp_terminal"] move scratchpad
 for_window [class="sp_terminal"] sticky enable
 #for_window [class="sp_terminal"] scratchpad show
 for_window [class="sp_terminal"] move position center
-for_window [class="sp_terminal"] resize set 800 600
+for_window [class="sp_terminal"] resize set 1200 900
 for_window [class="sp_terminal"] border pixel 1
 exec_always --no-startup-id alacritty --class sp_terminal
 bindsym $mod+t [class="sp_terminal"] scratchpad show; [class="sp_terminal"] move position center
