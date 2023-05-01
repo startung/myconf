@@ -263,20 +263,20 @@ client.background       #ffffff
 for_window [class="org.gnome.Characters"] floating enable
 
 for_window [class="Zotero"] floating enable
-for_window [class="Zotero"] move scratchpad 
-for_window [class="Zotero"] sticky enable
-for_window [class="Zotero"] move position center
-for_window [class="Zotero"] resize set 1078 600
-for_window [class="Zotero"] border pixel 1
+for_window [class="Zotero" class="Navigator"] move scratchpad 
+for_window [class="Zotero" class="Navigator"] sticky enable
+for_window [class="Zotero" class="Navigator"] move position center
+for_window [class="Zotero" class="Navigator"] resize set 1078 600
+for_window [class="Zotero" class="Navigator"] border pixel 1
 exec --no-startup-id zotero 
 bindsym $mod+z [class="Zotero"] scratchpad show; [class="Zotero"] move position center
 
 for_window [class="KeePassXC"] floating enable
-for_window [class="KeePassXC"] move scratchpad 
-for_window [class="KeePassXC"] sticky enable
-for_window [class="KeePassXC"] move position center
-for_window [class="KeePassXC"] resize set 1078 600
-for_window [class="KeePassXC"] border pixel 1
+for_window [class="KeePassXC" title="main.kdbx"] move scratchpad 
+for_window [class="KeePassXC" title="main.kdbx"] sticky enable
+for_window [class="KeePassXC" title="main.kdbx"] move position center
+for_window [class="KeePassXC" title="main.kdbx"] resize set 1078 600
+for_window [class="KeePassXC" title="main.kdbx"] border pixel 1
 exec --no-startup-id keepassxc
 bindsym $mod+p [class="KeePassXC"] scratchpad show; [class="KeePassXC"] move position center
 
