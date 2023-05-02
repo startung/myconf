@@ -298,6 +298,8 @@ for_window [class="sp_terminal"] border pixel 1
 exec_always --no-startup-id alacritty -t ranger --class sp_terminal -e ranger
 bindsym $mod+n [class="sp_terminal"] scratchpad show; [class="sp_terminal"] move position center
 
+for_window [class="protonvpn"] floating enable
+
 for_window [class="^.*"] border pixel 1
 
 exec "setxkbmap -option 'caps:escape_shifted_capslock' -option 'eurosign:5' -option 'lv3:ralt_switch'"
