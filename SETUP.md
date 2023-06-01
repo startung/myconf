@@ -20,7 +20,14 @@ sudo apt update && sudo apt upgrade -y
 wget -nv -O- https://lambdalabs.com/install-lambda-stack.sh | sh -
 sudo reboot
 
-sudo nala install libfuse2  alacritty curl git build-essential flatpak keepassxc vim net-tools cowsay tigervnc-viewer ttf-mscorefonts-installer fonts-hack-ttf ubuntu-restricted-extras dialog python3-pip python-is-python3 hexedit virtualbox cifs-utils vlc qbittorrent gnome-tweaks samba-client samba-common libdvd-pkg nvidia-prime nvidia-settings i3 nitrogen picom caffeine shutter syncthing gnome-software-plugin-flatpak gnome-software ranger pavucontrol virtualbox python-venv nvtop flameshot gimp atool plocate
+sudo nala install libfuse2  alacritty curl git build-essential flatpak keepassxc vim net-tools cowsay tigervnc-viewer ttf-mscorefonts-installer fonts-hack-ttf ubuntu-restricted-extras dialog python3-pip python-is-python3 hexedit virtualbox cifs-utils vlc qbittorrent gnome-tweaks samba-client samba-common libdvd-pkg nvidia-prime nvidia-settings i3 nitrogen picom caffeine shutter syncthing gnome-software-plugin-flatpak gnome-software ranger pavucontrol virtualbox python-venv nvtop flameshot gimp atool plocate tesseract-ocr ocrmypdf neovim btop
+
+sudo update-alternatives --install /usr/bin/vi vi /usr/bin/nvim 60
+sudo update-alternatives --config vi
+sudo update-alternatives --install /usr/bin/vim vim /usr/bin/nvim 60
+sudo update-alternatives --config vim
+sudo update-alternatives --install /usr/bin/editor editor /usr/bin/nvim 60
+sudo update-alternatives --config editor
 
 ## Create/Restore RSA Key:
 ```bash

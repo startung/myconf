@@ -137,3 +137,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+PATH="$HOME/.local/bin:$PATH"

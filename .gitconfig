@@ -2,7 +2,6 @@
 	name = Darren Rawlings
 	email = darren.rawlings@gmail.com
 [credential] # cache creditials
-    helper = cache --timeout=28800
 [url "https://startung@github.com"]
     insteadOf = https://github.com
 [color] # colorise ouput
