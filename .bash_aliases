@@ -58,8 +58,8 @@ shopt -s autocd
 
 # set aliases and functions pretending to be aliases
 alias t='todo.sh'
-alias dotfiles='/usr/bin/git --git-dir=/home/darren/.dotfiles/ --work-tree=/home/darren'
-alias kp='kpcli --readonly --kdb=/home/darren/Applilcations/Keepass2Android/main.kdbx'
+alias dotfiles='/usr/bin/git --git-dir=/home/startung/.dotfiles/ --work-tree=/home/startung'
+alias kp='kpcli --readonly --kdb=/home/startung/Applilcations/Keepass2Android/main.kdbx'
 alias dm='icmbuild program && \cp -f tmp/bin/binary ${PWD##*/} && ./${PWD##*/}'
 alias setclip='xclip -selection c'
 alias getclip='xclip -selection c -o'
@@ -70,10 +70,10 @@ gitr() {
     git pull && git add . && git commit -m "$1" && git push;
 }
 kpx() { 
-  kpcli --readonly --kdb=/home/darren/pCloudDrive/Applications/Keepass2Android/main.kdbx --command "xp main/$1";
+  kpcli --readonly --kdb=/home/startung/pCloudDrive/Applications/Keepass2Android/main.kdbx --command "xp main/$1";
 }
 kpu() { 
-  kpcli --readonly --kdb=/home/darren//pCloud/Drive/Applications/Keepass2Android/main.kdbx --command "xu main/$1";
+  kpcli --readonly --kdb=/home/startung/pCloud/Drive/Applications/Keepass2Android/main.kdbx --command "xu main/$1";
 }
 end() {
     kill $(ps aux | grep "$1" | grep -v grep | awk '{print $2}');
