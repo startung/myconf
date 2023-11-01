@@ -122,5 +122,7 @@ fi
 
 export PIP_REQUIRE_VIRTUALENV=true
 
+[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
+
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export GOPATH=$HOME/go
