@@ -12,12 +12,16 @@ set $term foot
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
+#set $menu dmenu_path | dmenu | xargs swaymsg exec --
+set $menu XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/flatpak/exports/share/:$HOME/.local/share/flatpak/exports/share/ j4-dmenu-desktop --dmenu="/home/startung/bin/bemenu-run.sh -l 30" --term="foot" --no-generic --display-binary
+
 set $highlight-colour #ebcb8b
 set $indicator-colour #d08770
 
 default_border pixel 2
 client.focused "$highlight-colour" "$highlight-colour" "#ffffff" "$indicator-colour"
+
+#exec --no-startup-id /usr/libexec/gsd-xsettings
 
 ### Output configuration
 #
@@ -89,7 +93,7 @@ input "1267:12521:ELAN1205:00_04F3:30E9_Touchpad" {
     # Exit sway (logs you out of your Wayland session)
     #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-exec --no-startup-id pcloud
+exec --no-startup-id /home/startung/bin/pcloud
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
