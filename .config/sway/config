@@ -22,6 +22,8 @@ default_border pixel 2
 client.focused "$highlight-colour" "$highlight-colour" "#ffffff" "$indicator-colour"
 
 #exec --no-startup-id /usr/libexec/gsd-xsettings
+#exec eval $(gnome-keyring-daemon --start)
+#exec export SSH_AUTH_SOCK
 
 ### Output configuration
 #
