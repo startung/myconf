@@ -5,7 +5,7 @@
     //"width": 1350, // Waybar width
     // Choose the order of the modules idle_inhibitor
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-    "modules-right": ["custom/pacman", "backlight", "custom/keyboard-layout", "cpu", "memory", "battery", "network", "custom/network_traffic", "pulseaudio","tray", "idle_inhibitor", "clock","custom/power"],
+    "modules-right": ["custom/gfx", "custom/keyboard-layout", "cpu", "memory", "battery", "network", "custom/network_traffic", "pulseaudio","tray", "idle_inhibitor", "clock","custom/power"],
 
  // Modules configuration
 
@@ -37,6 +37,13 @@
             "deactivated": ""
         }
     },
+    "custom/gfx": {
+        "format": "{}",
+        "interval": 3,
+        "return-type": "json",
+        "exec": "bash $HOME/.config/sway/waybar/modules/gfx.sh",
+        "on-click": "bash $HOME/.config/sway/waybar/modules/gfxmenu.sh"
+    },
     "tray": {
         "icon-size": 14,
         "spacing": 5
@@ -50,8 +57,10 @@
         //"max-length": 200
         "interval": 1
     },
+//    "custom/cpumemory": {
+//    },
     "cpu": {
-        "format": " {usage: >3}%",
+        "format": " {usage: >3}%",
         "on-click": "foot --app-id float -e btop"
     },
     "memory": {
@@ -125,7 +134,8 @@
       	"exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
       	// Interval set only as a fallback, as the value is updated by signal
       	"interval": 30,
-      	"format": "  {}", // Icon: keyboard
+      	//"format": "  {}", // Icon: keyboard
+      	"format": " ", // Icon: keyboard
       	// Signal sent by Sway key binding (~/.config/sway/key-bindings)
       	"signal": 1, // SIGHUP
       	"tooltip": false,

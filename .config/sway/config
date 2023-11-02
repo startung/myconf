@@ -241,13 +241,8 @@ bindsym $mod+Escape exec --no-startup-id $Locker
 #set $mode_system System (l) lock, (e) logout, (r) reboot, (s) shutdown
 set $mode_system System (l)ogout, (r)eboot, (s)hutdown
 mode "$mode_system" {
-    #bindsym l exec --no-startup-id $Locker, mode "default"
-    #bindsym e exec --no-startup-id i3-msg exit, mode "default"
-    bindsym l exec --no-startup-id i3-msg exit, mode "default"
-    #bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    #bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
+    bindsym l exec --no-startup-id swaymsg exit, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    #bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
     bindsym s exec --no-startup-id systemctl poweroff -i, mode "default"
 
     # back to normal: Enter or Escape
@@ -275,7 +270,7 @@ for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 for_window [app_id="org.keepassxc.KeePassXC" title="main.kdbx"] move scratchpad
 for_window [app_id="org.keepassxc.KeePassXC" title="main.kdbx"] sticky enable
 for_window [app_id="org.keepassxc.KeePassXC" title="main.kdbx"] move position center
-for_window [app_id="org.keepassxc.KeePassXC" title="main.kdbx"] resize set 1078 600
+for_window [app_id="org.keepassxc.KeePassXC" title="main.kdbx"] resize set 1078 1078 
 for_window [app_id="org.keepassxc.KeePassXC" title="main.kdbx"] border pixel 1
 exec --no-startup-id keepassxc
 bindsym $mod+p [app_id="org.keepassxc.KeePassXC"] scratchpad show; [app_id="org.keepassxc.KeePassXC"] move position center
@@ -286,7 +281,7 @@ for_window [app_id="sp_ranger"] sticky enable
 for_window [app_id="sp_ranger"] resize set 1078 1078
 for_window [app_id="sp_ranger"] move position center
 for_window [app_id="sp_ranger"] border pixel 1
-exec_always --no-startup-id foot -t ranger --app-id sp_ranger -e ranger
+exec_always --no-startup-id foot --app-id sp_ranger -e ranger
 bindsym $mod+n [app_id="sp_ranger"] scratchpad show; [app_id="sp_ranger"] move position center
 
 for_window [app_id="sp_terminal"] floating enable
