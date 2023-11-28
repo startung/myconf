@@ -68,7 +68,7 @@ window#waybar {
 }
 
 #workspaces button.focused {
-    border-color: #81a1c1;
+    border-color: #ff0000;
 }
 
 #mode {
