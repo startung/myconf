@@ -127,3 +127,19 @@ export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export GOPATH=$HOME/go
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/startung/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/startung/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/startung/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/startung/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
