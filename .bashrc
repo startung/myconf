@@ -121,6 +121,7 @@ if [ -f $HOME/.cargo/env ]; then
 fi
 
 export PIP_REQUIRE_VIRTUALENV=true
+export XDG_CURRENT_DESKTOP=Sway
 
 #[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
