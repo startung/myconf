@@ -80,3 +80,7 @@ end() {
 }
 alias wttr='curl wttr.in/Groningen'
 alias ds='date +"%Y-%m-%d"'
+
+alias ve='. .venv/bin/activate'
+
+alias eza='eza -lhig'     # long headers icons git

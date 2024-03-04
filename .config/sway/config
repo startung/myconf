@@ -1,3 +1,7 @@
+
+include ~/.config/sway/outputs-`hostname`
+focus_follows_mouse no
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -95,7 +99,7 @@ input "1267:12521:ELAN1205:00_04F3:30E9_Touchpad" {
     # Exit sway (logs you out of your Wayland session)
     #bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
-exec --no-startup-id /home/startung/bin/pcloud
+exec --no-startup-id gtk-launch appimagekit-pcloud
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
@@ -301,10 +305,8 @@ for_window [app_id="float"] resize set 1078 900
 
 bindsym $mod+Shift+n exec --no-startup-id nautilus
 
-exec_always --no-startup-id /usr/bin/syncthing --no-browser
-exec_always --no-startup-id /usr/bin/nm-applet
-exec systemctl --user set-environment XDG_CURRENT_DESKTOP=sway
-exec_always --no-startup-id /usr/bin/flameshot
+exec_always --no-startup-id XDG_CURRENT_DESKTOP=Sway /usr/bin/flameshot
+exec_always nm-applet --indicator
 
 bindsym XF86MonBrightnessUp exec sudo light -A 10
 bindsym XF86MonBrightnessDown exec sudo light -U 10

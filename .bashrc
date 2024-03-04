@@ -56,10 +56,12 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
+source ~/Scripts/git-prompt.sh 
+
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " [%s]")'; PS1='\[\e[1m\]\w\[\e[0;3m\]${PS1_CMD1}\[\e[0m\] $?\n\[\e[7m\]\$\[\e[0m\] '
 else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+    PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " [%s]")'; PS1='\[\e[1m\]\w\[\e[0;3m\]${PS1_CMD1}\[\e[0m\] $?\n\[\e[7m\]\$\[\e[0m\] '
 fi
 unset color_prompt force_color_prompt
 
@@ -121,7 +123,6 @@ if [ -f $HOME/.cargo/env ]; then
 fi
 
 export PIP_REQUIRE_VIRTUALENV=true
-export XDG_CURRENT_DESKTOP=Sway
 
 #[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
@@ -144,3 +145,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+. "$HOME/.cargo/env"
+
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+eval "$(atuin init bash)"
+
+export XDG_CURRENT_DESKTOP=Sway
