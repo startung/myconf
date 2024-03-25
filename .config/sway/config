@@ -12,7 +12,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term foot
+set $term foot --config ~/.config/foot/foot-`hostname`.ini
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -305,8 +305,8 @@ for_window [app_id="float"] resize set 1078 900
 
 bindsym $mod+Shift+n exec --no-startup-id nautilus
 
-exec_always --no-startup-id XDG_CURRENT_DESKTOP=Sway /usr/bin/flameshot
-exec_always nm-applet --indicator
+exec XDG_CURRENT_DESKTOP=Sway /usr/bin/flameshot
+exec nm-applet --indicator
 
 exec "/usr/libexec/polkit-gnome-authentication-agent-1"
 
