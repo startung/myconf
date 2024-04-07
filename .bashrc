@@ -36,34 +36,38 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
+#case "$TERM" in
+#    xterm-color|*-256color) color_prompt=yes;;
+#esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
 #force_color_prompt=yes
 
-if [ -n "$force_color_prompt" ]; then
-    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+#if [ -n "$force_color_prompt" ]; then
+#    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 	# We have color support; assume it's compliant with Ecma-48
 	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
 	# a case would tend to support setf rather than setaf.)
-	color_prompt=yes
-    else
-	color_prompt=
-    fi
-fi
+	#color_prompt=yes
+ #   else
+#	color_prompt=
+#    fi
+#fi
 
-source ~/Scripts/git-prompt.sh 
+#source ~/Scripts/git-prompt.sh 
 
-if [ "$color_prompt" = yes ]; then
-    PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " [%s]")'; PS1='\[\e[1m\]\w\[\e[0;3m\]${PS1_CMD1}\[\e[0m\] $?\n\[\e[7m\]\$\[\e[0m\] '
-else
-    PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " [%s]")'; PS1='\[\e[1m\]\w\[\e[0;3m\]${PS1_CMD1}\[\e[0m\] $?\n\[\e[7m\]\$\[\e[0m\] '
-fi
-unset color_prompt force_color_prompt
+#if [ "$color_prompt" = yes ]; then
+#    PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " [%s]")'; PS1='\[\e[1m\]\w\[\e[0;3m\]$\[$(tput setaf 200)\]{PS1_CMD1}\[\e[0m\] $?\[$(tput sgr0)\]\n\[\e[7m\]\$\[\e[0m\] '
+#else
+    #PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " [%s]")'; PS1='\[\e[1m\]\w\[\e[0;3m\][$(tput setaf 200)\]\{PS1_CMD1}\[\e[0m\] $?\[$(tput sgr0)\]\n\[\e[7m\]\$\[\e[0m\] '
+    #PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " [%s]")'; PS1='\[\e[1m\]\w\[\e[0;3m\]${PS1_CMD1}\[\e[0m\] $?\n\[\e[7m\]\$\[\e[0m\] '
+    #PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " [%s]")'; PS1='\[\e[1m\]\w\[\e[0;3m\]$\[$(tput setaf 200)\]{PS1_CMD1}\[\e[0m\] $?\[$(tput sgr0)\]\n\[\e[7m\]\$\[\e[0m\] '
+    #export PS1="\[$(tput setaf 200)\]\u\[$(tput setaf 15)\]@\[$(tput setaf 214)\]\h \[$(tput setaf 200)\]\w \[$(tput sgr0)\]$ "
+    export PS1="\[$(tput setaf 200)\]$\[$(tput sgr0)\] "
+#fi
+#unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
@@ -130,19 +134,25 @@ export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 export GOPATH=$HOME/go
 
+PATH="$HOME/AppImages:$PATH"
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/startung/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/startung/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/startung/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/startung/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/startung/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/home/startung/miniforge3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/startung/miniconda3/bin:$PATH"
+        export PATH="/home/startung/miniforge3/bin:$PATH"
     fi
 fi
 unset __conda_setup
+
+if [ -f "/home/startung/miniforge3/etc/profile.d/mamba.sh" ]; then
+    . "/home/startung/miniforge3/etc/profile.d/mamba.sh"
+fi
 # <<< conda initialize <<<
 
 . "$HOME/.cargo/env"

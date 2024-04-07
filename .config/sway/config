@@ -19,8 +19,20 @@ set $term foot --config ~/.config/foot/foot-`hostname`.ini
 #set $menu dmenu_path | dmenu | xargs swaymsg exec --
 set $menu XDG_DATA_DIRS=/usr/share/:/usr/local/share/:/var/lib/flatpak/exports/share/:$HOME/.local/share/flatpak/exports/share/ j4-dmenu-desktop --dmenu="/home/startung/bin/bemenu-run.sh -l 30" --term="foot" --no-generic --display-binary
 
-set $highlight-colour #ebcb8b
-set $indicator-colour #d08770
+set $backgroud-colour #0e1419
+set $selection-colour #44475a
+set $comment-colour   #6272a4
+set $foreground-color #f8f8f2
+set $red              #ff5555
+set $orange           #ffb86c
+set $yellow           #f1fa8c
+set $green            #50fa7b
+set $cyan             #8be9fd
+set $purple           #bd93f9
+set $pink             #ff79c6
+
+set $highlight-colour $pink
+set $indicator-colour $cyan 
 
 default_border pixel 2
 client.focused "$highlight-colour" "$highlight-colour" "#ffffff" "$indicator-colour"
@@ -33,7 +45,7 @@ client.focused "$highlight-colour" "$highlight-colour" "#ffffff" "$indicator-col
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /home/startung/data/Wallpapers/ohlala.jpeg fill
+output * bg /home/startung/data/Wallpapers/dracula.png fill
 #
 # Example configuration:
 #
@@ -279,14 +291,14 @@ for_window [app_id="org.keepassxc.KeePassXC" title="main.kdbx"] border pixel 1
 exec --no-startup-id keepassxc
 bindsym $mod+p [app_id="org.keepassxc.KeePassXC"] scratchpad show; [app_id="org.keepassxc.KeePassXC"] move position center
 
-for_window [app_id="sp_ranger"] floating enable
-for_window [app_id="sp_ranger"] move scratchpad
-for_window [app_id="sp_ranger"] sticky enable
-for_window [app_id="sp_ranger"] resize set 1078 900
-for_window [app_id="sp_ranger"] move position center
-for_window [app_id="sp_ranger"] border pixel 1
-exec_always --no-startup-id foot --app-id sp_ranger -e ranger
-bindsym $mod+n [app_id="sp_ranger"] scratchpad show; [app_id="sp_ranger"] move position center
+for_window [app_id="sp_mc"] floating enable
+for_window [app_id="sp_mc"] move scratchpad
+for_window [app_id="sp_mc"] sticky enable
+for_window [app_id="sp_mc"] resize set 1400 900
+for_window [app_id="sp_mc"] move position center
+for_window [app_id="sp_mc"] border pixel 1
+exec_always --no-startup-id $term --app-id sp_mc -e mc
+bindsym $mod+n [app_id="sp_mc"] scratchpad show; [app_id="sp_mc"] move position center
 
 for_window [app_id="sp_terminal"] floating enable
 for_window [app_id="sp_terminal"] move scratchpad
@@ -294,7 +306,7 @@ for_window [app_id="sp_terminal"] sticky enable
 for_window [app_id="sp_terminal"] resize set 1078 900
 for_window [app_id="sp_terminal"] move position center
 for_window [app_id="sp_terminal"] border pixel 1
-exec_always --no-startup-id foot --app-id sp_terminal
+exec_always --no-startup-id $term --app-id sp_terminal
 bindsym $mod+t [app_id="sp_terminal"] scratchpad show; [app_id="sp_terminal"] move position center
 
 for_window [class="protonvpn"] floating enable
