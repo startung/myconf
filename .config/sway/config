@@ -45,7 +45,7 @@ client.focused "$highlight-colour" "$highlight-colour" "#ffffff" "$indicator-col
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
 #output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-output * bg /home/startung/data/Wallpapers/dracula.png fill
+output * bg /home/startung/.config/dr-wallpapers/dracula.png fill
 #
 # Example configuration:
 #
