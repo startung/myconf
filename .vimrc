@@ -1,5 +1,11 @@
+if v:version < 802
+    packadd! dracula
+endif
+syntax enable
+colorscheme dracula
+
 " Set the colorscheme (https://github.com/chriskempson/tomorrow-theme)
-colorscheme Tomorrow-Night-Bright
+"colorscheme Tomorrow-Night-Bright
 
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible

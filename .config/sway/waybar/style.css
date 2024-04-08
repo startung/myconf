@@ -41,35 +41,42 @@ nord15 #b48ead
 /* Reset all styles */
 
 * {
-    color: #eceff4;
+    color: @cyan;
     border: 0;
     border-radius: 0;
     padding: 0 0;
     font-family:"JetBrainsMono NFM", monospace;
-    font-weight: bold;
-    font-size: 16px;
+    font-size: 14px;
     margin-right: 5px;
     margin-left: 5px;
     padding-bottom: 0px;
    }
 
+@import url("./dracula-at-night.css");
+
 window#waybar {
-/*    background:#2e3440;*/
+	background: @background-darker;
+	color: @pink;
+/* or cyan, green, orange, pink, red, yellow, foreground, background-darker etc. */
+}
+
+/*window#waybar {
     background:#000000;
 
 }
+*/
 
 #workspaces button {
     padding: 0px 0px;
     border-bottom: 2px;
     color: #eceff4;
-    border-color: #d8dee9;
+    border-color: @comment;
     border-style: solid;
     margin-top:2px;
 }
 
 #workspaces button.focused {
-    border-color: #ff0000;
+    border-color: @pink;
 }
 
 #mode {
