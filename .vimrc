@@ -1,9 +1,3 @@
-if v:version < 802
-    packadd! dracula
-endif
-syntax enable
-colorscheme dracula
-
 " Set the colorscheme (https://github.com/chriskempson/tomorrow-theme)
 "colorscheme Tomorrow-Night-Bright
 

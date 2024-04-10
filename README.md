@@ -1,139 +1,341 @@
-# myconf
 
-My dotfiles, tracked in a bare git repository.
 
-Borrowed from
-* [Derrick Reimer's repo](https://github.com/derrickreimer/dotfiles)
-* [Nicola Paolucci's blog post](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
+### Beast + Nobara 39
 
-## Installation
+Maybe add some more of the stuff from https://mutschler.dev/linux/fedora-post-install/
 
-### Install the pre-requisites
+
+## Install
+- User: startung
+- Device Name: beast-nobara
+- Use encryption, same password for encryption and login, autologin
+- User swap with hibernation
+
+
+## Speed up updates
+- sudo nano /etc/dnf/dnf.conf
+- set max_parallel_downloads=10
+- add fastestmirror=true
+
+
+## From welcome app
+- Allow the update, if it fails use nobara-sync
+- Uncheck open on start up
+- Install Discord
+- Log in to Steam, then install Steam Game Fixups
+- Proton-GE
+
+
+## Admin stuff
+
+- sudo hostnamectl set-hostname "beast-nobara"
+- sudo mkdir /mnt/data
+- to /etc/fstab add UUID=0C00412A00411C58                     /mnt/data      ntfs    defaults,noatime,nls=utf8,umask=000,dmask=027,fmask=137,uid=1000,gid=1000,windows_names 0 2
+
+
+## Settings - Display
+
+- Set Samsung to 100Hz
+- Set Dell to left side and rotate to portrait right
+
+
+## Fix login monitor
+
+- sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
+- sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
+- Restart
+
+
+## Basics
+
+```bash
+mkdir -p app-data code/data notes
+```
+
+
+## Create/Restore RSA Key:
+
+```bash
+ssh-keygen -t rsa -b 4096 -C "darren.rawlings@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add /home/startung/.ssh/id_rsa_beast_nobara
+```
+
+
+## Desktop Environments
+
+sudo dnf install @sway-desktop-environment --allowerasing
+sudo dnf copr enable solopasha/hyprland
+sudo dnf install hyprland-nvidia
+
+sudo vim /usr/share/wayland-sessions/sway.desktop
+edit so: Exec=sway --unsupported-gpu
+
+
+### Min list
+sudo dnf install arandr bat btop calibre cairo-devel cairo-gobject-devel cargo cmake cowsay darktable eza firefox-wayland flameshot foot fuzzel fzf gimp glib2-devel gnome-tweaks go gtk-layer-shell-devel gtk3-devel hyprpaper keepassxc mc meson network-manager-applet no-more-secrets nvtop polkit-gnome qbittorrent qdirstat rpi-imager tldr wayland-protocols-devel
+
+
+### Maybe list
+sudo dnf install  bemenu binwalk build-essential cargo corectrl gobject-introspection gtk-doc-tools hyprpaper j4-dmenu-desktop libcairo2-dev libedit-devel libgirepository1.0-dev libglib2.0-dev libgtk-3-dev libpango1.0-dev libusb libusb-compat-0.1 libusb-compat-0.1-devel libwayland-dev  valac wireguard-tools yad
+
+
+## Dnf Installs
+- **arandr**: Graphical X RandR monitor configuration tool.
+- **bat**: A cat (print) command for text files, but with syntax highlighting and git diff.
+- **bemenu**: Interactive menu for Bash, with fuzzy finding and file previews.
+- **binwalk**: Reverse-engineers binary files looking for embedded Linux kernels and shellcode.
+- **btop**: Interactive, realtime Linux process viewer similar to top but with interactive controls.
+- **build-essential**: Metapackage installing essential tools required for Debian packaging.
+- **calibre**: Powerful e-book manager (library management, conversion, syncing, etc.).
+- **cargo**: Rust package manager for building, testing and deploying Rust projects.
+- **corectl**: Control and monitor systemd services and system information.
+- **cowsay**: Display ASCII art cow sayings or messages.
+- **curl**: Transfer data between a client and various servers using different protocols.
+- **darktable**: Raw image processing software, similar to Lightroom.
+- **du-dust**: A more intuitive version of du in rust.
+- **eza**: Interactive terminal emulator with split views and mouse support.
+- **firefox-wayland**: A web browser supporting multiple platforms, including Wayland compositors.
+- **flameshot**: Simple screenshot tool that can capture regions, full screen or windows.
+- **foot**: Terminal-based file manager for browsing and managing files.
+- **fuzzel**: A Wayland-native application launcher, similar to rofi's drun mode.
+- **fzf**: Interactive command-line fuzzy finder, enhancing the user experience of various applications.
+- **gimp**: Advanced image editor used for photo retouching, manipulation, and creation.
+- **git**: Distributed version control system, facilitating collaboration and software development.
+- **gnome-extensions-app**: GNOME shell extensions browser and installer.
+- **gnome-tweaks**: Graphical settings editor for customizing the appearance and behavior of the GNOME desktop environment.
+- **go**: Open-source programming language for building simple, efficient, and concurrent software.
+- **gobject-introspection**: Code generation utility for producing language bindings for GLib objects.
+- **gtk-doc-tools**: Generate HTML documentation from GTK+ application source code.
+- **gtk-layer-shell-devel**: Development tools for the GTK+ 3.x graphical toolkit.
+- **gtk3-devel**: GTK+ 3 development headers and libraries.
+- **hyprland**: A dynamic, flexible, and extensible tiling window manager.
+- **j4-dmenu-desktop**: Desktop application launcher based on the rofi dmenu interface.
+- **keepassxc**: A password manager.
+- **cairo-devel**: Development files for Cairo, a graphics library rendering vector and raster images. Required for nwg-bar.
+- **cairo-gobject-devel**: Go development files for Cairo, a graphics library rendering vector and raster images. Required for nwg-bar.
+- **libedit-devel**: Development headers for the editing library used by various applications.
+- **libgirepository1.0-dev**: Libraries and headers required for introspection support.
+- **glib2-devel**: Development files for Glib, a fundamental utility library in GNOME projects. Required for nwg-bar.
+- **libgtk-3-devel**: GTK+ 3 development headers and libraries.
+- **libpango1.0-dev**: Development files for Pango, a text rendering engine with OpenType features.
+- **libusb**: User-space library to communicate with USB devices without requiring root privileges.
+- **libusb-compat-0.1**: Compatibility layer providing a standard API for working with USB devices.
+- **libusb-compat-0.1-devel**: Development files for the compatibility layer.
+- **libwayland-dev**: Development headers and libraries for Wayland, a simple compositor.
+- **mc**: Terminal-based file manager with text editor, FTP client, and various tools.
+- **meson**: Build system for creating installable packages using C, Rust, or other languages.
+- **neofetch**: Display terminal backgrounds based on system information.
+- **neovim**: A modern, extensible text editor built upon Vim.
+- **network-manager-applet**: System tray icon managing WiFi and VPN connections.
+- **no-more-secrets**: Reveal hidden passwords in terminal output.
+- **nvtop**: GPU monitor with realtime 3D overlay displaying system statistics.
+- **polkit-gnome**: GNOME frontend for PolicyKit, allowing privileged actions from graphical applications.
+- **pulseaudio-utils**: Utilities for managing and configuring the PulseAudio sound server.
+- **python-is-python3**: Check if Python interpreter is version 3 or above.
+- **qbittorrent**: Bittorrent client for downloading files using the BitTorrent protocol.
+- **qdirstat**: File explorer with treeview and tabbed interface, providing quick access to directories.
+- **sway**: A tiling window manager following i3wm workflow, using Wayland compositor.
+- **rg**: Ripgrep is a tool to allows the grepping of files including in subdirectories.
+- **rpi-imager**: A tool for imaging images to microSD cards/usb devices, focused on the Raspberry Pi.
+- **tldr**: Display terminal man pages in plain English.
+- **valac**: Compile Vala source code into machine code for generating statically linked executables.
+- **waybar**: System tray bar for Wayland with notifications, weather, and other features.
+- **wayland-protocols-devel**: Contains Wayland protocols that add functionality not available in the Wayland core protocol. Required for dmenu-wl.
+- **wireguard-tools**: Utilities for managing WireGuard VPN connections and configuration files.
+- **yad**: GTK+ graphical dialog application for handling various tasks such as file choosers, input boxes, and more.
+
+
+## Flatpak/Snap Installs
+
+- Gear Lever
+- Extension Manager (by mjakeman, after removing existing)
+- vlc
+- spotify
+
+
+## Extension Manager
+
+- Espresso
+- Fancy Tiling
+
+
+## Gear Lever Settings
+
+- Use executable name for integrated terminal apps: On
+- Save appimages files without prefixes: On
+
+
+## AppImages
+
+- pCloud https://www.pcloud.com/how-to-install-pcloud-drive-linux.html?download=electron-64 (set sync app-data <-> Applications)
+- Obsidian https://obsidian.md/
+- Arduino https://www.arduino.cc/en/software
+- PrusaSlicer https://github.com/prusa3d/PrusaSlicer/releases
+
+
+## RPM install
+
+- Microsoft Edge https://www.microsoft.com/en-us/edge/download
+- VSCode https://code.visualstudio.com/docs/?dv=linux64_rpm
+
+
+### ProtonVPN https://protonvpn.com/support/official-linux-vpn-fedora/
+
+```bash
+wget https://repo.protonvpn.com/fedora-39-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.1-2.noarch.rpm
+sudo dnf install ./protonvpn-stable-release-1.0.1-2.noarch.rpm
+sudo dnf check-update && sudo dnf upgrade
+sudo dnf install --refresh proton-vpn-gnome-desktop
+```
+Accept the two GPG Keys
+
+
+## Other Software
+
+Atuin (history):
 ```sh
-sudo apt install git curl vim caffeine kpcli keepassxc cowsay build-essential
+/bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)"
+atuin login -u startung
+atuin import auto
+atuin sync
 ```
 
-Install pCloud from https://www.pcloud.com/download-free-online-cloud-file-storage.html
 
-Install No-More-Secrets
-```sh
-git clone https://github.com/bartobri/no-more-secrets.git
-cd ./no-more-secrets
-make nms
-make sneakers             ## Optional
-sudo make install
+## Go installs
+
+- nwg-bar https://github.com/nwg-piotr/nwg-bar
+- dmenu-wl https://github.com/nyyManni/dmenu-wayland
+
+## Rust Installs
+cargo install du-dust
+
+
+## ML
+
+### Miniconda https://docs.anaconda.com/free/miniconda/
+
+```bash
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+~/miniconda3/bin/conda init bash
+conda create --name tf python=3.11
+conda activate tf
+conda install -c conda-forge tensorflow-gpu
+sudo echo 0 | sudo tee -a /sys/bus/pci/devices/0000\:01\:00.0/numa_node
+python -c "import tensorflow as tf; print(tf.config.list_physical_devices())"
+conda install numpy pandas scikit-learn matplotlib seaborn ipykernel
+conda deactivate
+conda create --name pt python=3.11
+conda activate pt
+conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
+conda install numpy pandas scikit-learn matplotlib seaborn ipykernel
+python -c "import torch as pt; print([pt.cuda.device(i) for i in range(pt.cuda.device_count())])"
+conda deactivate
 ```
 
-Fix the clipboard on Xclip
 
-```sh
-perl -MCPAN -e install HTML::Template 
-cd ~/perl5/lib/perl5
-curl -O https://www.av8n.com/security/Xclip.pm
-curl -O http://search.cpan.org/CPAN/authors/id/P/PE/PEREINAR/File-Which-0.05.tar.gz
-ex File-Which-0.05.tar.gz
-cd File-Which-0.05
-perl Makefile.PL INSTALLSITELIB=~/perl5/lib/perl5
-make && make install
-```
-... make the following changes to /usr/bin/kpcli:
-```sh
-44a45,46
-> use Xclip;
->
-1702c1704
-<     Clipboard->copy('');
----
->     Xclip::copy2('');
-1734c1736
-<     Clipboard->copy($to_copy);
----
->     Xclip::copy2($to_copy);
+```bash
+curl https://ollama.ai/install.sh | sh
+ollama list
 ```
 
-### Clone the repository into home directory
+## Micro Controller etc...
 
-This repository contains a `.bashrc` file, which you will want to override the
-default file created by bash. If you need to retain your existing `.bashrc` file,
-move it to a different spot:
+Allow use of arduinos etc: sudo usermod -a -G dialout $USER
 
-```sh
-cd ~
-mv .bashrc .bashrc.pre-dotfiles
-```
 
-Then, clone this repository into your home directory:
 
-```sh
-git clone --bare https://github.com/startung/myconf.git $HOME/.dotfiles
-```
+## Dotfiles
 
-Checkout the content of the repository into `$HOME`:
+My dotfiles, tracked in a bare git repository. Borrowed from [Derrick Reimer's repo](https://github.com/derrickreimer/dotfiles), and [Nicola Paolucci's blog post](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
 
-```sh
-git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
-```
+- Add public rsa key to github.com
+- Clone this repository into your home directory: git clone --bare git@github.com:startung/myconf.git $HOME/.dotfiles
+- Checkout the content of the repository: git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
+- If there are conflicts with existing files, Git will let you know, be sure to back those up first before retrying
+- Restart your shell session to pick up all the new aliases and configurations.
+- Tell Git to ignore untracked files when running `git status`, since this repository will only manage certain hand-picked files in your home directory: dotfiles config --local status.showUntrackedFiles no
 
-If there are conflicts with existing files, Git will let you know like this:
+Usage
 
-```
-error: The following untracked working tree files would be overwritten by checkout:
-    .gitconfig
-Please move or remove them before you can switch branches.
-Aborting
-```
+- See your proposed changes: dotfiles status
+- Stage up your changes: dotfiles add .bashrc
+- dotfiles commit -m "Message goes here"
+- Push to GitHub: dotfiles push
+- You'll want to avoid running an "add all" command (like `dotfiles add .` or `dotfiles add -A`) since only some of the files in the home directory are tracked by Git. Instead use `dotfiles add -u` which will add all tracked files.
 
-Be sure to back those up first before moving forward.
 
-Restart your shell session to pick up all the new aliases and configurations.
+## Gnome shortcuts
+- disable Super+p gsettings set org.gnome.mutter.keybindings switch-monitor '[]'
+- add Super+Return short cut for terminal(foot)
+- add Super+Shift+Return shortcut for firefox
+- add Super+Shift+n shortcut for Nautilus
+- add Super+p short cut for keepassxc
+- add Super+Esc short cut for lock screen (disable restore shortcuts)
 
-### Finish setup
-Fix vim by installing pathogen and vim-plug
+## Tweaks
 
-```sh
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-```
-open vim and type
-```sh
-:PlugInstall
-```
-Install Nerd Font (Hack) and LSD
-https://www.nerdfonts.com/font-downloads
-https://github.com/Peltoche/lsd
-Download the latest .deb package from the release page and install it via:
-```sh
-sudo dpkg -i lsd_7.2.0_amd64.deb  # adapt version number and architecture
-```
+- set theme to Dracula
+- change caps for Esc but shift caps as regular
+- add euro on 4
+- disable middle click paste
+- set Interface, Monospace, and Legacy to JetBrains Nerd Mono
+- if the mouse cursor does not appear add WLR_NO_HARDWARE_CURSORS=1 tp /etc/environment
 
-You'll want to tell Git to ignore untracked files when running `git status`,
-since this repository will only manage certain hand-picked files in your
-home directory:
+## Enable Gnome Keyring in Sway (from: https://major.io/p/use-gnome-keyring-with-sway)
 
 ```sh
-dotfiles config --local status.showUntrackedFiles no
+systemctl daemon-reload --user
+systemctl enable --now --user gnome-keyring-daemon
+systemctl status --user gnome-keyring-daemon
 ```
 
-## Committing new changes
 
-Suppose you just made a change to your `.bashrc` file and would like to commit it
-to your dotfiles repo.
+## Fix Sway-Nvidia
 
-```sh
-# See your proposed changes
-dotfiles status
+Set /etc/environment to:
 
-# Stage up your changes
-dotfiles add .bashrc
-
-# Commit it
-dotfiles commit -m "Message goes here"
-
-# Push it up
-dotfiles push
 ```
+# Hardware cursors not yet working on wlroots
+WLR_NO_HARDWARE_CURSORS=1
 
-You'll want to avoid running an "add all" command (like `dotfiles add .` or `dotfiles add -A`)
-since only some of the files in the home directory are tracked by Git. Instead use `dotfiles add -u` which will add all tracked files.
+# Set wlroots renderer to Vulkan to avoid flickering
+WLR_RENDERER=vulkan
+
+# General wayland environment variables
+XDG_SESSION_TYPE=wayland
+QT_QPA_PLATFORM=wayland
+QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+# Firefox wayland environment variable
+MOZ_ENABLE_WAYLAND=1
+MOZ_USE_XINPUT2=1
+
+# OpenGL Variables
+GBM_BACKEND=nvidia-drm
+__GL_GSYNC_ALLOWED=0
+__GL_VRR_ALLOWED=0
+__GLX_VENDOR_LIBRARY_NAME=nvidia
+
+# Xwayland compatibility
+XWAYLAND_NO_GLAMOR=1
+```
+## Colour Palette
+
+0e1419 Background - very dark grey
+44475a Current line/Selection - dark grey
+6272a4 Comment - dark blue
+f8f8f2 Foreground - off white
+ff5555 Red
+ffb86c Orange
+f1fa8c Yellow
+50fa7b Green
+8be9fd Cyan
+bd93f9 Purple
+ff79c6 Pink
+
+
+
