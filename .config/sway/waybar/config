@@ -5,7 +5,8 @@
     //"width": 1350, // Waybar width
     // Choose the order of the modules idle_inhibitor
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-    "modules-right": ["custom/gfx", "custom/keyboard-layout", "cpu", "memory", "battery", "network", "custom/network_traffic", "pulseaudio","tray", "idle_inhibitor", "clock","custom/power"],
+    //"modules-right": ["custom/gfx", "custom/keyboard-layout", "cpu", "memory", "battery", "network", "custom/network_traffic", "pulseaudio","tray", "idle_inhibitor", "clock","custom/power"],
+    "modules-right": ["custom/keybindings-hint", "cpu", "memory", "battery", "network", "custom/network-traffic", "pulseaudio","tray", "idle_inhibitor", "clock"],
 
  // Modules configuration
 
@@ -33,8 +34,8 @@
     "idle_inhibitor": {
         "format": "{icon}",
        "format-icons": {
-            "activated": "",
-            "deactivated": ""
+            "activated": "  ",
+            "deactivated": "  "
         }
     },
     "custom/gfx": {
@@ -60,12 +61,12 @@
 //    "custom/cpumemory": {
 //    },
     "cpu": {
-        "format": " {usage: >3}%",
-        "on-click": "foot --app-id float -e btop"
+        "format": "CPU{usage: >3}%",
+        "on-click": "alacritty --app-id float -e btop"
     },
     "memory": {
-        "format": " {: >3}%",
-        "on-click": "foot --app-id float -e btop"
+        "format": "MEM{: >3}%",
+        "on-click": "alacritty --app-id float -e btop"
     },
     "temperature": {
         // "thermal-zone": 2,
@@ -99,7 +100,7 @@
         "format-wifi": " {essid}",
         "format-ethernet": " {ifname}: {ipaddr}/{cidr}",
         "format-disconnected": "⚠ Disconnected",
-        "on-click": "foot app-id float -e nmtui"
+        //"on-click": "alacritty app-id float -e nmtui"
     },
     "pulseaudio": {
         "scroll-step": 5,
@@ -122,7 +123,7 @@
         "interval": 7200,                     // every two hours
         "exec": "i=$(checkupdates); echo \"$i\" |wc -l; echo \"$i\" |column -t |tr '\n' '\r'",       // # of updates and tooltip details
         "exec-if": "exit 0",                  // always run; consider advanced run conditions
-        "on-click": "foot -e sudo dnf upgrade", // update system
+        "on-click": "alacritty -e sudo dnf upgrade", // update system
         "signal": 8
     },
     "custom/power": {
@@ -130,12 +131,12 @@
        	"on-click": "nwg-bar",
       	"tooltip": false,
    },
-   "custom/keyboard-layout": {
+   "custom/keybindings-hint": {
       	"exec": "swaymsg -t get_inputs | grep -m1 'xkb_active_layout_name' | cut -d '\"' -f4",
       	// Interval set only as a fallback, as the value is updated by signal
       	"interval": 30,
       	//"format": "  {}", // Icon: keyboard
-      	"format": " ", // Icon: keyboard
+      	"format": " ? ",
       	// Signal sent by Sway key binding (~/.config/sway/key-bindings)
       	"signal": 1, // SIGHUP
       	"tooltip": false,
@@ -146,8 +147,8 @@
     	"on-click": "exec nwg-drawer -c 7 -is 70 -spacing 23",
     	"tooltip": false,
 },
-     "custom/network_traffic": {
-             "exec": "~/.config/sway/waybar/scripts/network_traffic.sh wlo1",
+     "custom/network-traffic": {
+             "exec": "~/.config/sway/waybar/scripts/network_traffic.sh",// wlo1",
              "return-type": "json",
              "format-ethernet": "{icon} {ifname} ⇣{bandwidthDownBytes:>4} ⇡{bandwidthUpBytes:>4}",    // optional
 },

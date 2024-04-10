@@ -1,8 +1,12 @@
+# General Linux Setup
 
+Notes:
 
-### Beast + Nobara 39
+- OS: Nobara 39
+- nvidia support
+- sway window manager
 
-Maybe add some more of the stuff from https://mutschler.dev/linux/fedora-post-install/
+Maybe add some more of the [stuff](https://mutschler.dev/linux/fedora-post-install)
 
 
 ## Install
@@ -13,9 +17,10 @@ Maybe add some more of the stuff from https://mutschler.dev/linux/fedora-post-in
 
 
 ## Speed up updates
-- sudo nano /etc/dnf/dnf.conf
-- set max_parallel_downloads=10
-- add fastestmirror=true
+
+- `sudo nano /etc/dnf/dnf.conf`
+- set `max_parallel_downloads=10`
+- add `fastestmirror=true`
 
 
 ## From welcome app
@@ -28,9 +33,9 @@ Maybe add some more of the stuff from https://mutschler.dev/linux/fedora-post-in
 
 ## Admin stuff
 
-- sudo hostnamectl set-hostname "beast-nobara"
-- sudo mkdir /mnt/data
-- to /etc/fstab add UUID=0C00412A00411C58                     /mnt/data      ntfs    defaults,noatime,nls=utf8,umask=000,dmask=027,fmask=137,uid=1000,gid=1000,windows_names 0 2
+- `sudo hostnamectl set-hostname "beast-nobara"`
+- `sudo mkdir /mnt/data`
+- `to /etc/fstab add UUID=0C00412A00411C58                     /mnt/data      ntfs    defaults,noatime,nls=utf8,umask=000,dmask=027,fmask=137,uid=1000,gid=1000,windows_names 0 2`
 
 
 ## Settings - Display
@@ -41,16 +46,14 @@ Maybe add some more of the stuff from https://mutschler.dev/linux/fedora-post-in
 
 ## Fix login monitor
 
-- sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/
-- sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml
+- `sudo cp ~/.config/monitors.xml /var/lib/gdm/.config/`
+- `sudo chown gdm:gdm /var/lib/gdm/.config/monitors.xml`
 - Restart
 
 
 ## Basics
 
-```bash
-mkdir -p app-data code/data notes
-```
+`mkdir -p app-data code/data notes`
 
 
 ## Create/Restore RSA Key:
@@ -64,23 +67,62 @@ ssh-add /home/startung/.ssh/id_rsa_beast_nobara
 
 ## Desktop Environments
 
-sudo dnf install @sway-desktop-environment --allowerasing
-sudo dnf copr enable solopasha/hyprland
-sudo dnf install hyprland-nvidia
+- `sudo dnf install @sway-desktop-environment --allowerasing`
+- `sudo dnf copr enable solopasha/hyprland`
+- `sudo dnf install hyprland-nvidia`
+- `sudo vim /usr/share/wayland-sessions/sway.desktop`
+- edit so: `Exec=sway --unsupported-gpu`
 
-sudo vim /usr/share/wayland-sessions/sway.desktop
-edit so: Exec=sway --unsupported-gpu
+### Fix Sway-Nvidia
 
+Set /etc/environment to:
+
+```
+# Hardware cursors not yet working on wlroots
+WLR_NO_HARDWARE_CURSORS=1
+
+# Set wlroots renderer to Vulkan to avoid flickering
+WLR_RENDERER=vulkan
+
+# General wayland environment variables
+XDG_SESSION_TYPE=wayland
+QT_QPA_PLATFORM=wayland
+QT_WAYLAND_DISABLE_WINDOWDECORATION=1
+
+# Firefox wayland environment variable
+MOZ_ENABLE_WAYLAND=1
+MOZ_USE_XINPUT2=1
+
+# OpenGL Variables
+GBM_BACKEND=nvidia-drm
+__GL_GSYNC_ALLOWED=0
+__GL_VRR_ALLOWED=0
+__GLX_VENDOR_LIBRARY_NAME=nvidia
+
+# Xwayland compatibility
+XWAYLAND_NO_GLAMOR=1
+```
+
+### Enable Gnome Keyring in Sway (from: https://major.io/p/use-gnome-keyring-with-sway)
+
+```bash
+systemctl daemon-reload --user
+systemctl enable --now --user gnome-keyring-daemon
+systemctl status --user gnome-keyring-daemon
+```
+
+## Dnf Installs
 
 ### Min list
-sudo dnf install arandr bat btop calibre cairo-devel cairo-gobject-devel cargo cmake cowsay darktable eza firefox-wayland flameshot foot fuzzel fzf gimp glib2-devel gnome-tweaks go gtk-layer-shell-devel gtk3-devel hyprpaper keepassxc mc meson network-manager-applet no-more-secrets nvtop polkit-gnome qbittorrent qdirstat rpi-imager tldr wayland-protocols-devel
+sudo dnf install arandr bat btop calibre cargo cowsay darktable eza firefox-wayland flameshot foot fuzzel fzf gimp gnome-tweaks go hyprpaper keepassxc mc meson network-manager-applet no-more-secrets nvtop polkit-gnome qbittorrent qdirstat rpi-imager tldr 
 
 
 ### Maybe list
-sudo dnf install  bemenu binwalk build-essential cargo corectrl gobject-introspection gtk-doc-tools hyprpaper j4-dmenu-desktop libcairo2-dev libedit-devel libgirepository1.0-dev libglib2.0-dev libgtk-3-dev libpango1.0-dev libusb libusb-compat-0.1 libusb-compat-0.1-devel libwayland-dev  valac wireguard-tools yad
+sudo dnf install binwalk corectrl valac wireguard-tools yad
 
 
-## Dnf Installs
+### Descriptions
+
 - **arandr**: Graphical X RandR monitor configuration tool.
 - **bat**: A cat (print) command for text files, but with syntax highlighting and git diff.
 - **bemenu**: Interactive menu for Bash, with fuzzy finding and file previews.
@@ -146,7 +188,7 @@ sudo dnf install  bemenu binwalk build-essential cargo corectrl gobject-introspe
 - **yad**: GTK+ graphical dialog application for handling various tasks such as file choosers, input boxes, and more.
 
 
-## Flatpak/Snap Installs
+## Flatpak Installs
 
 - Gear Lever
 - Extension Manager (by mjakeman, after removing existing)
@@ -168,19 +210,18 @@ sudo dnf install  bemenu binwalk build-essential cargo corectrl gobject-introspe
 
 ## AppImages
 
-- pCloud https://www.pcloud.com/how-to-install-pcloud-drive-linux.html?download=electron-64 (set sync app-data <-> Applications)
-- Obsidian https://obsidian.md/
-- Arduino https://www.arduino.cc/en/software
-- PrusaSlicer https://github.com/prusa3d/PrusaSlicer/releases
+- [pCloud](https://www.pcloud.com/how-to-install-pcloud-drive-linux.html?download=electron-64) (set sync app-data <-> Applications)
+- [Obsidian](https://obsidian.md)
+- [Arduino](https://www.arduino.cc/en/software)
+- [PrusaSlicer](https://github.com/prusa3d/PrusaSlicer/releases)
 
 
 ## RPM install
 
-- Microsoft Edge https://www.microsoft.com/en-us/edge/download
-- VSCode https://code.visualstudio.com/docs/?dv=linux64_rpm
+- [Microsoft Edge](https://www.microsoft.com/en-us/edge/download)
+- [VSCode](https://code.visualstudio.com/docs/?dv=linux64_rpm)
 
-
-### ProtonVPN https://protonvpn.com/support/official-linux-vpn-fedora/
+### [ProtonVPN](https://protonvpn.com/support/official-linux-vpn-fedora)
 
 ```bash
 wget https://repo.protonvpn.com/fedora-39-stable/protonvpn-stable-release/protonvpn-stable-release-1.0.1-2.noarch.rpm
@@ -202,18 +243,13 @@ atuin sync
 ```
 
 
-## Go installs
-
-- nwg-bar https://github.com/nwg-piotr/nwg-bar
-- dmenu-wl https://github.com/nyyManni/dmenu-wayland
-
 ## Rust Installs
-cargo install du-dust
+`cargo install du-dust`
 
 
 ## ML
 
-### Miniconda https://docs.anaconda.com/free/miniconda/
+### [Miniconda](https://docs.anaconda.com/free/miniconda)
 
 ```bash
 mkdir -p ~/miniconda3
@@ -247,24 +283,23 @@ ollama list
 Allow use of arduinos etc: sudo usermod -a -G dialout $USER
 
 
-
 ## Dotfiles
 
 My dotfiles, tracked in a bare git repository. Borrowed from [Derrick Reimer's repo](https://github.com/derrickreimer/dotfiles), and [Nicola Paolucci's blog post](https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/).
 
 - Add public rsa key to github.com
-- Clone this repository into your home directory: git clone --bare git@github.com:startung/myconf.git $HOME/.dotfiles
-- Checkout the content of the repository: git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout
+- Clone this repository into your home directory: `git clone --bare git@github.com:startung/myconf.git $HOME/.dotfiles`
+- Checkout the content of the repository: `git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME checkout`
 - If there are conflicts with existing files, Git will let you know, be sure to back those up first before retrying
 - Restart your shell session to pick up all the new aliases and configurations.
 - Tell Git to ignore untracked files when running `git status`, since this repository will only manage certain hand-picked files in your home directory: dotfiles config --local status.showUntrackedFiles no
 
 Usage
 
-- See your proposed changes: dotfiles status
-- Stage up your changes: dotfiles add .bashrc
-- dotfiles commit -m "Message goes here"
-- Push to GitHub: dotfiles push
+- See your proposed changes: `dotfiles status`
+- Stage up your changes: `dotfiles add [files/directories]`
+- `dotfiles commit -m "Message goes here"`
+- Push to GitHub: `dotfiles push`
 - You'll want to avoid running an "add all" command (like `dotfiles add .` or `dotfiles add -A`) since only some of the files in the home directory are tracked by Git. Instead use `dotfiles add -u` which will add all tracked files.
 
 
@@ -276,6 +311,7 @@ Usage
 - add Super+p short cut for keepassxc
 - add Super+Esc short cut for lock screen (disable restore shortcuts)
 
+
 ## Tweaks
 
 - set theme to Dracula
@@ -283,59 +319,23 @@ Usage
 - add euro on 4
 - disable middle click paste
 - set Interface, Monospace, and Legacy to JetBrains Nerd Mono
-- if the mouse cursor does not appear add WLR_NO_HARDWARE_CURSORS=1 tp /etc/environment
-
-## Enable Gnome Keyring in Sway (from: https://major.io/p/use-gnome-keyring-with-sway)
-
-```sh
-systemctl daemon-reload --user
-systemctl enable --now --user gnome-keyring-daemon
-systemctl status --user gnome-keyring-daemon
-```
+- if the mouse cursor does not appear add `WLR_NO_HARDWARE_CURSORS=1` to `/etc/environment`
 
 
-## Fix Sway-Nvidia
 
-Set /etc/environment to:
-
-```
-# Hardware cursors not yet working on wlroots
-WLR_NO_HARDWARE_CURSORS=1
-
-# Set wlroots renderer to Vulkan to avoid flickering
-WLR_RENDERER=vulkan
-
-# General wayland environment variables
-XDG_SESSION_TYPE=wayland
-QT_QPA_PLATFORM=wayland
-QT_WAYLAND_DISABLE_WINDOWDECORATION=1
-
-# Firefox wayland environment variable
-MOZ_ENABLE_WAYLAND=1
-MOZ_USE_XINPUT2=1
-
-# OpenGL Variables
-GBM_BACKEND=nvidia-drm
-__GL_GSYNC_ALLOWED=0
-__GL_VRR_ALLOWED=0
-__GLX_VENDOR_LIBRARY_NAME=nvidia
-
-# Xwayland compatibility
-XWAYLAND_NO_GLAMOR=1
-```
 ## Colour Palette
 
-0e1419 Background - very dark grey
-44475a Current line/Selection - dark grey
-6272a4 Comment - dark blue
-f8f8f2 Foreground - off white
-ff5555 Red
-ffb86c Orange
-f1fa8c Yellow
-50fa7b Green
-8be9fd Cyan
-bd93f9 Purple
-ff79c6 Pink
+- #0e1419 Background - very dark grey
+- #44475a Current line/Selection - dark grey
+- #6272a4 Comment - dark blue
+- #f8f8f2 Foreground - off white
+- #ff5555 Red
+- #ffb86c Orange
+- #f1fa8c Yellow
+- #50fa7b Green
+- #8be9fd Cyan
+- #bd93f9 Purple
+- #ff79c6 Pink
 
 
 
