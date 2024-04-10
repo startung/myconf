@@ -65,7 +65,8 @@ fi
     #PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " [%s]")'; PS1='\[\e[1m\]\w\[\e[0;3m\]${PS1_CMD1}\[\e[0m\] $?\n\[\e[7m\]\$\[\e[0m\] '
     #PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " [%s]")'; PS1='\[\e[1m\]\w\[\e[0;3m\]$\[$(tput setaf 200)\]{PS1_CMD1}\[\e[0m\] $?\[$(tput sgr0)\]\n\[\e[7m\]\$\[\e[0m\] '
     #export PS1="\[$(tput setaf 200)\]\u\[$(tput setaf 15)\]@\[$(tput setaf 214)\]\h \[$(tput setaf 200)\]\w \[$(tput sgr0)\]$ "
-    export PS1="\[$(tput setaf 200)\]$\[$(tput sgr0)\] "
+    #export PS1="\[$(tput setaf 200)\]$\[$(tput sgr0)\] "
+PS1='\[$(tput setaf 13)\]\t\[$(tput setaf 12)\] $? \[$(tput setaf 14)\]\W\n\[$(tput setaf 10)\]\\$\[$(tput sgr0)\] '
 #fi
 #unset color_prompt force_color_prompt
 
