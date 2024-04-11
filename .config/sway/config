@@ -172,7 +172,7 @@ mode "$mode_system" {
 bindsym $mod+Shift+p mode "$mode_system"
 
 # exec waybar
-exec_always 'pkill waybar; waybar -c /home/startung/.config/sway/waybar/config -s /home/startung/.config/sway/waybar/style.css' 
+exec_always 'pkill waybar; waybar -c /home/startung/.config/sway/waybar/config-`hostname` -s /home/startung/.config/sway/waybar/style.css' 
 
 for_window [app_id="org.gnome.Characters"] floating enable
 
