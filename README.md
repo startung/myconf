@@ -271,12 +271,12 @@ conda activate tf
 conda install -c conda-forge tensorflow-gpu
 sudo echo 0 | sudo tee -a /sys/bus/pci/devices/0000\:01\:00.0/numa_node
 python -c "import tensorflow as tf; print(tf.config.list_physical_devices())"
-conda install numpy pandas scikit-learn matplotlib seaborn ipykernel
+conda install numpy pandas scikit-learn matplotlib seaborn ipykernel tqdm
 conda deactivate
 conda create --name pt python=3.11
 conda activate pt
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-conda install numpy pandas scikit-learn matplotlib seaborn ipykernel
+conda install numpy pandas scikit-learn matplotlib seaborn ipykernel tqdm
 python -c "import torch as pt; print([pt.cuda.device(i) for i in range(pt.cuda.device_count())])"
 conda deactivate
 ```
