@@ -234,6 +234,9 @@ input "type:keyboard" {
     xkb_options caps:escape_shifted_capslock
 }
 
-workspace 1
-
 include /etc/sway/config.d/*
+
+bindsym $mod+slash exec ~/.config/sway/waybar/scripts/keyhint.sh
+
+workspace 1
+exec sleep 1

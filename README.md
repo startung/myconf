@@ -114,11 +114,11 @@ systemctl status --user gnome-keyring-daemon
 ## Dnf Installs
 
 ### Min list
-sudo dnf install arandr bat btop calibre cargo cowsay darktable eza firefox-wayland flameshot foot fuzzel fzf gimp gnome-tweaks go hyprpaper keepassxc mc meson network-manager-applet no-more-secrets nvtop polkit-gnome qbittorrent qdirstat rpi-imager tldr 
+sudo dnf install arandr bat btop calibre cargo cowsay darktable eza firefox-wayland flameshot foot fuzzel fzf gimp gnome-tweaks go hyprpaper keepassxc mc meson network-manager-applet no-more-secrets nvtop polkit-gnome qbittorrent qdirstat rpi-imager tldr wev yad 
 
 
 ### Maybe list
-sudo dnf install binwalk corectrl valac wireguard-tools yad
+sudo dnf install binwalk corectrl valac wireguard-tools
 
 
 ### Descriptions
@@ -185,6 +185,7 @@ sudo dnf install binwalk corectrl valac wireguard-tools yad
 - **waybar**: System tray bar for Wayland with notifications, weather, and other features.
 - **wayland-protocols-devel**: Contains Wayland protocols that add functionality not available in the Wayland core protocol. Required for dmenu-wl.
 - **wireguard-tools**: Utilities for managing WireGuard VPN connections and configuration files.
+- **wev**: Shows wayland events, useful for showing key codes for the sway bindings.
 - **yad**: GTK+ graphical dialog application for handling various tasks such as file choosers, input boxes, and more.
 
 
