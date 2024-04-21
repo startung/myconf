@@ -114,7 +114,7 @@ systemctl status --user gnome-keyring-daemon
 ## Dnf Installs
 
 ### Min list
-sudo dnf install arandr bat btop calibre cargo cowsay darktable eza firefox-wayland flameshot foot fuzzel fzf gimp gnome-tweaks go hyprpaper keepassxc mc meson network-manager-applet no-more-secrets nvtop polkit-gnome qbittorrent qdirstat rpi-imager tldr wev yad 
+sudo dnf install arandr bat btop calibre cargo cowsay darktable eza firefox-wayland flameshot foot fuzzel fzf g++ gimp gnome-tweaks go hyprpaper keepassxc mc meson network-manager-applet no-more-secrets nvtop polkit-gnome qbittorrent qdirstat rpi-imager tldr wev yad 
 
 
 ### Maybe list
@@ -142,6 +142,7 @@ sudo dnf install binwalk corectrl valac wireguard-tools
 - **foot**: Terminal-based file manager for browsing and managing files.
 - **fuzzel**: A Wayland-native application launcher, similar to rofi's drun mode.
 - **fzf**: Interactive command-line fuzzy finder, enhancing the user experience of various applications.
+- **g++**: Compiler for c++.
 - **gimp**: Advanced image editor used for photo retouching, manipulation, and creation.
 - **git**: Distributed version control system, facilitating collaboration and software development.
 - **gnome-extensions-app**: GNOME shell extensions browser and installer.
@@ -178,6 +179,7 @@ sudo dnf install binwalk corectrl valac wireguard-tools
 - **qbittorrent**: Bittorrent client for downloading files using the BitTorrent protocol.
 - **qdirstat**: File explorer with treeview and tabbed interface, providing quick access to directories.
 - **sway**: A tiling window manager following i3wm workflow, using Wayland compositor.
+- **swig**: Command  used  to  create wrapper code to connect C and C++ code to scripting languages like Python.
 - **rg**: Ripgrep is a tool to allows the grepping of files including in subdirectories.
 - **rpi-imager**: A tool for imaging images to microSD cards/usb devices, focused on the Raspberry Pi.
 - **tldr**: Display terminal man pages in plain English.

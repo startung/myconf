@@ -82,5 +82,7 @@ alias wttr='curl wttr.in/Groningen'
 alias ds='date +"%Y-%m-%d"'
 
 alias ve='. .venv/bin/activate'
+alias tf='conda activate tf'
+alias pt='conda activate pt'
 
 alias eza='eza -lhig'     # long headers icons git
