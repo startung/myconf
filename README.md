@@ -111,10 +111,11 @@ systemctl enable --now --user gnome-keyring-daemon
 systemctl status --user gnome-keyring-daemon
 ```
 
+
 ## Dnf Installs
 
 ### Min list
-sudo dnf install arandr bat btop calibre cargo cowsay darktable eza firefox-wayland flameshot foot fuzzel fzf g++ gimp gnome-tweaks go hyprpaper keepassxc mc meson network-manager-applet no-more-secrets nvtop polkit-gnome qbittorrent qdirstat rpi-imager tldr wev yad 
+sudo dnf install arandr bat btop calibre cowsay darktable eza firefox-wayland flameshot foot fuzzel fzf g++ gimp gnome-tweaks go hyprpaper keepassxc mc meson network-manager-applet no-more-secrets nvtop polkit-gnome qbittorrent qdirstat rpi-imager tldr wev wireguard-tools yad 
 
 
 ### Maybe list
@@ -244,19 +245,17 @@ sudo dnf install --refresh proton-vpn-gnome-desktop
 Accept the two GPG Keys
 
 
-## Other Software
+## Rust Installs
 
-Atuin (history):
+- `curl https://sh.rustup.rs -sSf | sh`
+- `cargo install du-dust`
+- Atuin (history):
 ```sh
 /bin/bash -c "$(curl --proto '=https' --tlsv1.2 -sSf https://setup.atuin.sh)"
 atuin login -u startung
 atuin import auto
 atuin sync
 ```
-
-
-## Rust Installs
-`cargo install du-dust`
 
 
 ## ML
