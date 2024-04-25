@@ -198,6 +198,7 @@ sudo dnf install binwalk corectrl valac wireguard-tools
 - Extension Manager (by mjakeman, after removing existing)
 - vlc
 - spotify
+- zotero
 
 
 ## Extension Manager

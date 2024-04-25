@@ -176,14 +176,14 @@ exec_always 'pkill waybar; waybar -c /home/startung/.config/sway/waybar/config-`
 
 for_window [app_id="org.gnome.Characters"] floating enable
 
-for_window [class="Zotero"] floating enable
-for_window [class="Zotero" instance="Navigator"] move scratchpad
-for_window [class="Zotero" instance="Navigator"] sticky enable
-for_window [class="Zotero" instance="Navigator"] move position center
-for_window [class="Zotero" instance="Navigator"] resize set 1078 900
-for_window [class="Zotero" instance="Navigator"] border pixel 1
-exec --no-startup-id flatpak run org.zotero.Zotero
-bindsym $mod+z [class="Zotero" instance="Navigator"] scratchpad show; [class="Zotero" instance="Navigator"] move position center
+#for_window [class="Zotero"] floating enable
+#for_window [class="Zotero" instance="Navigator"] move scratchpad
+#for_window [class="Zotero" instance="Navigator"] sticky enable
+#for_window [class="Zotero" instance="Navigator"] move position center
+#for_window [class="Zotero" instance="Navigator"] resize set 1078 900
+#for_window [class="Zotero" instance="Navigator"] border pixel 1
+#exec --no-startup-id flatpak run org.zotero.Zotero
+#bindsym $mod+z [class="Zotero" instance="Navigator"] scratchpad show; [class="Zotero" instance="Navigator"] move position center
 
 for_window [app_id="org.keepassxc.KeePassXC"] floating enable
 for_window [app_id="org.keepassxc.KeePassXC" title="main.kdbx"] move scratchpad
