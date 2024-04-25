@@ -274,12 +274,12 @@ conda activate tf
 conda install -c conda-forge tensorflow-gpu
 sudo echo 0 | sudo tee -a /sys/bus/pci/devices/0000\:01\:00.0/numa_node
 python -c "import tensorflow as tf; print(tf.config.list_physical_devices())"
-conda install numpy pandas scikit-learn matplotlib seaborn ipykernel tqdm
+conda install numpy pandas scikit-learn matplotlib seaborn ipykernel tqdm opencv dash
 conda deactivate
 conda create --name pt python=3.11
 conda activate pt
 conda install pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-conda install numpy pandas scikit-learn matplotlib seaborn ipykernel tqdm
+conda install numpy pandas scikit-learn matplotlib seaborn ipykernel tqdm opencv dash
 python -c "import torch as pt; print([pt.cuda.device(i) for i in range(pt.cuda.device_count())])"
 conda deactivate
 ```
@@ -314,6 +314,14 @@ Usage
 - Push to GitHub: `dotfiles push`
 - You'll want to avoid running an "add all" command (like `dotfiles add .` or `dotfiles add -A`) since only some of the files in the home directory are tracked by Git. Instead use `dotfiles add -u` which will add all tracked files.
 
+
+## Zotero
+
+- Get [latest (min 7)](https://www.zotero.org/support/dev/zotero_7_for_developers)
+- Extract and move to /opt/zotero
+- run `sudo /opt/zotero/set_launcher_icon`
+- `ln -s /opt/zotero/zotero.desktop ~/.local/share/applications/zotero.desktop`
+- [better bibtex](https://retorque.re/zotero-better-bibtex/)
 
 ## Gnome shortcuts
 - disable Super+p gsettings set org.gnome.mutter.keybindings switch-monitor '[]'
