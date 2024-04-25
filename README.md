@@ -13,7 +13,7 @@ Maybe add some more of the [stuff](https://mutschler.dev/linux/fedora-post-insta
 - User: startung
 - Device Name: beast-nobara
 - Use encryption, same password for encryption and login, autologin
-- User swap with hibernation
+- Use swapfile
 
 
 ## Speed up updates
@@ -53,7 +53,19 @@ Maybe add some more of the [stuff](https://mutschler.dev/linux/fedora-post-insta
 
 ## Basics
 
-`mkdir -p app-data code/data notes`
+`mkdir -p app-data code/data notes zotfiles`
+
+
+## Increase swapfile size
+
+```bash
+cat /proc/swaps
+sudo swapoff /swap/swapfile
+sudo rm /swap/swapfile
+sudo btrfs filesystem mkswapfile --size 200g --uuid clear /swap/swapfile
+sudo swapon /swap/swapfile
+cat /proc/swaps
+```
 
 
 ## Create/Restore RSA Key:
