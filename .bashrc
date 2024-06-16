@@ -158,3 +158,6 @@ unset __conda_setup
 eval "$(atuin init bash)"
 
 export XDG_CURRENT_DESKTOP=Sway
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"

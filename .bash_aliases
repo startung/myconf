@@ -86,3 +86,6 @@ alias tf='conda activate tf'
 alias pt='conda activate pt'
 
 alias eza='eza -lhig'     # long headers icons git
+
+# Use trash rather than rm for easier file recovery
+alias rm='trash'
