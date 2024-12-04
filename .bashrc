@@ -127,7 +127,7 @@ if [ -f $HOME/.cargo/env ]; then
     . $HOME/.cargo/env
 fi
 
-export PIP_REQUIRE_VIRTUALENV=true
+#export PIP_REQUIRE_VIRTUALENV=true
 
 #[ -z "$SSH_AUTH_SOCK" ] && eval "$(ssh-agent -s)"
 export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
@@ -152,9 +152,9 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-. "$HOME/.cargo/env"
 
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
+PATH="$HOME/.atuin/bin:$PATH"
 eval "$(atuin init bash)"
 
 export XDG_CURRENT_DESKTOP=Sway
